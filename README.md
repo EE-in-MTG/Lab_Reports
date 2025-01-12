@@ -7,5 +7,5 @@ Report: https://ee-in-mtg.github.io/Lab_Reports/
 
 Lab1: https://ee-in-mtg.github.io/Lab_Reports/Lab1.html
 
-# notes
+# Notes
 Hello World!
