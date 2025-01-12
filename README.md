@@ -5,4 +5,5 @@ Reports for Fractal Geometry
 
 https://ee-in-mtg.github.io/Lab_Reports/
 
+Lab1: https://ee-in-mtg.github.io/Lab_Reports/Lab1.html
 Hello World!
