@@ -7,5 +7,7 @@ Report: https://ee-in-mtg.github.io/Lab_Reports/
 
 Lab1: https://ee-in-mtg.github.io/Lab_Reports/Lab1.html
 
+Colab: Copy of Module 1 Hahn MTG 6415 Fractal Geometry 2024 
+        https://colab.research.google.com/drive/1p0VTVg2z81scJ0dgNYfly4IC747uu7gm
 # Notes
 Hello World!
