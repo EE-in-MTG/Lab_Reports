@@ -158,8 +158,8 @@ From the figure above, the table below will realate these sections to their valu
 	      <h5>c. Dragon Curves</h5>
 
 	      <p style="text-indent: 40px; line-height: 1.6;">
-The Dragaon Curve function uses order, length and turn direct to draw. In this example the length is set to always be 1, but has a place to alter this and variable new length. Dragon Curve is built on the recursive function and also has a base function when the variable order is equal to zero. The first four, begining with zero, examples for functions in the fuigure below will show the reverse order of building up to the Dragon Curve. This is opposite to the normal decrement that is removing one from the current value of the variable "order".  The function has a built in flipflop gate for the direction to alternate the direction and the turn is set to always be 90 degrees. The built in direction is setup for right/left as positive 90 and negavtive 90 degree alternating. 
-        </p>
+The Dragaon Curve function uses order, length and turn direct to draw. In this example the length is set to always be 1, but has a place to alter this and variable new length. Dragon Curve is built on the recursive function and also has a base function when the variable order is equal to zero. The first four, begining with zero, examples for functions in the fuigure below will show the building up to the Dragon Curve. This is opposite to the normal decrement that is removing one from the current value of the variable "order".  The function has a built in flipflop gate for the direction to alternate the direction and the turn is set to always be 90 degrees. The built in direction is setup for right/left as positive 90 and negavtive 90 degree alternating. 
+		      </p>		
 
 
 	              <figure>
@@ -178,7 +178,7 @@ The Dragaon Curve function uses order, length and turn direct to draw. In this e
 
 	    
 	      <p style="text-indent: 40px; line-height: 1.6;">
-The tabel below helps understand the data used in the Dragaon Curve function and predict future uses for variable and dimensions. 
+The table below helps understand the data used in the Dragaon Curve function and predict future uses for variable and dimensions. 
         </p>
 
 	    
@@ -211,6 +211,51 @@ The tabel below helps understand the data used in the Dragaon Curve function and
   </tbody>
 </table>
 
+
+	    	      <p style="text-indent: 40px; line-height: 1.6;">
+
+        </p>
+
+	    <p style="text-indent: 40px; line-height: 1.6;">
+	The only time data is drawn on the screen is when the "order" variable is equal to zero. The code makes left and right turns happen evey time, but the drawing does not happen on every iteration of the function. The order controls the number of times the turtle will change dirrect, then only on the order zero will there be a draw event. 
+The table below is make to understand the turns used in the Dragaon Curve function and shows expnential growth in the decision that is the turn before each segment is drawn at the variable order equals zero. 	
+        </p>
+<!-- Insert Table Here -->
+<table>
+  <thead>
+    <tr>
+ 
+      <th>Value of Order</th>
+      <th>Turns</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>No turns</td>   
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>R </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>R L</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>R L R</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>R L R R L</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>R L R R L R L R</td>
+    </tr>
+  </tbody>
+</table>
       <!-- CONCLUSION SECTION -->
       <!-- -------------------------------------------------------------------------------------------- -->
       <!-- -------------------------------------------------------------------------------------------- -->
