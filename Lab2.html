@@ -18,8 +18,8 @@
   <header>
     <h1>Fractal Geometry Lab Report</h1>
     <p class="author">
-      [Your Name] <br />
-      [Date]
+      Joseph D Wilson <br />
+      02/10/2025
     </p>
   </header>
   
@@ -36,10 +36,8 @@
       <section id="introduction">
         <h2>Introduction</h2>
         <p>
-          This is a sample introduction showcasing how you might structure 
-          your opening section. Replace this paragraph with a concise 
-          overview of the topic or project you are addressing. You can then 
-          expand the explanation as needed.
+          Lab 2 is for generating random walks called Brownian motion and implement Koch and dragon curves using Python Turtle graphics in a Google notebook environment.
+
         </p>
       </section>
 
@@ -82,10 +80,13 @@
       
         <h2>Results &amp; Analysis</h2>
         <p>
-          In this placeholder section, you might describe observations,
-          results, or insights gained from any analysis. You can incorporate 
-          references to equations (e.g., $y = mx + b$) or embed images and 
-          other visual aids to illustrate your points.
+In the Blipline function, the first example of recursion is used in the code notebook. The function calls itself to mathematically reduce the size of the arguments passed to the next call. The recursive function has a built-in stop condition determined by the variable "order", which decrements with each recursive call until it reaches zero.
+
+An if/else statement ensures that a straight line is drawn on the final function call. This is referred to as the base case, where the recursive function stops executing. If a base case is not included in future implementations, there is a potential risk of infinite recursion, leading to excessive resource consumption and possible processing errors depending on the platform's available resources.
+
+Interestingly, this type of programming may have a correlation to denial-of-service (DoS) attacks in computer networking, where excessive recursive calls or loops overwhelm system resources.
+
+For mental visualization, the recursive function could be rewritten using a for loop. In this case, recursion can be thought of as function calls acting similarly to loop iterations, with each recursive call being comparable to an execution of the loop, decrementing the "order" variable at each step.
         </p>
 
 
