@@ -60,7 +60,7 @@
      
 	      <h3>a. Random Walks called Brownian motion</h3>
 <p style="text-indent: 40px; line-height: 1.6;">
-After setup and initalizing the Turle graphics, the random library is imported for the function random_walk. A for loop calls the function random.uniform() to generate a floating point number between and including the lower bound and upper bound. I choose to begin with smaller numbers to interpret the vicual output cell and found steps = 30, step_length = 100 to give and easier to read and count and felt a clear understanding of the code based on output. The code uses random for the degree of the turns. 
+After setup and initializing the Turtle graphics, the random library is imported for the function random_walk. A for loop calls the function random.uniform() to generate a floating point number between and including the lower bound and upper bound. I choose to begin with smaller numbers to interpret the visual output cell and found steps = 30, step_length = 100 to give and easier to read and count and felt a clear understanding of the code based on output. The code uses random for the degree of the turns. 
 </p>		
 
 <section id="code">
@@ -83,7 +83,7 @@ An if/else statement looks for that value zero and then a straight line is drawn
 Interestingly, this type of programming may have a correlation to denial-of-service (DoS) attacks in computer networking, where excessive recursive calls or loops overwhelm system resources. The possibility of better understanding base case could lead to development of protection against this attack method.  
 </p>		
 <p style="text-indent: 40px; line-height: 1.6;">
-The function process is elevated to a third order and output visualization is understandable. Next the blip_line function is called in a new function named the kock_snowflake function. Added into his function is a right turn of 120 degree which makes the order of 3 end up and the begining by 120 + 120 + 120 = 360 degrees as shown in the figure below.  
+The function process is elevated to a third order and output visualization is understandable. Next the blip_line function is called in a new function named the kock_snowflake function. Added into his function is a right turn of 120 degree which makes the order of 3 end up and the beginning by 120 + 120 + 120 = 360 degrees as shown in the figure below.  
         </p>
 
 
@@ -103,7 +103,7 @@ The function process is elevated to a third order and output visualization is un
         </figure>
 
 	      <p>
-For another understadning of recursive function calls, the recursive function could have been rewritten using a for loop. In this case, recursion can be thought of as function calls acting similarly to loop iterations.  Each recursive call being comparable to an execution of the loop, decrementing the "order" variable at each step. Interpreting when the variable "order" and the recursive nature of the function has been drawn onto the output cell below. This would be one example of each so the overlap can be eaisly identified. 
+For another understanding of recursive function calls, the recursive function could have been rewritten using a for loop. In this case, recursion can be thought of as function calls acting similarly to loop iterations.  Each recursive call being comparable to an execution of the loop, decrementing the "order" variable at each step. Interpreting when the variable "order" and the recursive nature of the function has been drawn onto the output cell below. This would be one example of each so the overlap can be easily identified. 
 	      </p>
         <figure>
           <img
@@ -118,7 +118,7 @@ For another understadning of recursive function calls, the recursive function co
           </figcaption>
         </figure>
 <p style="text-indent: 40px; line-height: 1.6;">
-From the figure above, the table below will realate these sections to their value of the variables which are the order and length when the function is running. 
+From the figure above, the table below will relate these sections to their value of the variables which are the order and length when the function is running.
 </p>
 <!-- Insert Table Here -->
 <table>
@@ -158,7 +158,7 @@ From the figure above, the table below will realate these sections to their valu
 	      <h5>c. Dragon Curves</h5>
 
 	      <p style="text-indent: 40px; line-height: 1.6;">
-The Dragaon Curve function uses order, length and turn direct to draw. In this example the length is set to always be 1, but has a place to alter this and variable new length. Dragon Curve is built on the recursive function and also has a base function when the variable order is equal to zero. The first four, begining with zero, examples for functions in the fuigure below will show the building up to the Dragon Curve. This is opposite to the normal decrement that is removing one from the current value of the variable "order".  The function has a built in flipflop gate for the direction to alternate the direction and the turn is set to always be 90 degrees. The built in direction is setup for right/left as positive 90 and negavtive 90 degree alternating. 
+The Dragon Curve function uses order, length and turn direct to draw. In this example the length is set to always be 1 but has a place to alter this and variable new length. Dragon Curve is built on the recursive function and has a base function when the variable order is equal to zero. The first four, beginning with zero, examples for functions in the figure below will show the building up to the Dragon Curve. This is opposite to the normal decrement that is removing one from the current value of the variable "order".  The function has a built in flipflop gate for the direction to alternate the direction and the turn is set to always be 90 degrees. The built-in direction is setup for right/left as positive 90 and negative 90-degree alternating. 
 		      </p>		
 
 
@@ -178,7 +178,7 @@ The Dragaon Curve function uses order, length and turn direct to draw. In this e
 
 	    
 	      <p style="text-indent: 40px; line-height: 1.6;">
-The table below helps understand the data used in the Dragaon Curve function and predict future uses for variable and dimensions. 
+The table below helps understand the data used in the Dragon Curve function and predict future uses for variable and dimensions. 
         </p>
 
 	    
@@ -217,8 +217,9 @@ The table below helps understand the data used in the Dragaon Curve function and
         </p>
 
 	    <p style="text-indent: 40px; line-height: 1.6;">
-	The only time data is drawn on the screen is when the "order" variable is equal to zero. The code makes left and right turns happen evey time, but the drawing does not happen on every iteration of the function. The order controls the number of times the turtle will change dirrect, then only on the order zero will there be a draw event. 
-The table below is make to understand the turns used in the Dragaon Curve function and shows expnential growth in the decision that is the turn before each segment is drawn at the variable order equals zero. 	
+	The only time data is drawn on the screen is when the "order" variable is equal to zero. The code makes left and right turns happen every time, but the drawing does not happen on every iteration of the function. The order controls the number of times the turtle will change direct, then only on the order zero will there be a draw event. 
+The table below is make to understand the turns used in the Dragon Curve function and shows exponential growth in the decision that is the turn before each segment is drawn at the variable order equals zero. 
+	
         </p>
 <!-- Insert Table Here -->
 <table>
@@ -264,7 +265,7 @@ The table below is make to understand the turns used in the Dragaon Curve functi
       <section id="conclusion">
         <h6>Conclusion</h6>
         <p>
-          In this sample conclusion, we highlight how the iterative approach to generating fractals reveals the vast complexity inherent in seemingly simple equations. Through our Python implementation, we observed that small parameter changes can produce markedly different fractal patterns, underscoring the Mandelbrot set's boundless intricacy. Our visualizations not only confirm the self-similarity and infinite resolution of the set, but also underscore the crucial role of computational optimizations in making high-resolution explorations feasible. Ultimately, this lab demonstrates that fractal geometry, far from being mere mathematical curiosities, provides deep insights into pattern formation and complexity in both pure mathematics and broader scientific contexts. 
+          Fractal Geometry involves recursive functions and math patterns to be represented on a computer. For this lab, Brownian motion, Koch curves, and Dragon curves iterate through functions and are plotted for interpretation. The Brownian motion showed how random can be applied to degrees in turning. Randomness in directionally selection made the output unpredictable. The Kock curve gave us an inspection of the recursive function and understanding of the base condition when brings recursion to an end. The Dragon curve showed recursion in turning and gave a rather uneasy way to manually predict the pattern due to the exponentially higher calculations for the turns when including higher order functions. With a better understanding of recursion on a computer platform, functions are and recursion are the main elements for fractal geometry. The big take away is that something has to change and then be feedback in to get recursion. Here the ability to stop with and else/if statement means that on the computer, we can stop the recursion, but I do not see how that is represented in other environments. 
         </p>
       </section>
 
