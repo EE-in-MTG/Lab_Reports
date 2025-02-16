@@ -36,7 +36,7 @@
       <section id="introduction">
         <h2>Introduction</h2>
         <p>
-          This is lab 3 "Three sides to the Triangle". This lab is to contruct and visualize Sierpinski triangle, explore recursive vs chaos game approaches.
+This is Lab 3: "Three Sides to the Triangle." This lab explores Python code for deconstructing, understanding, and visualizing the Sierpiński triangle while comparing recursive vs. elementary cellular automata. The code generates and outputs a two-dimensional pattern based on rules that depend on the values of nearby cells. The rules are represented in binary form and used to calculate the output.
         </p>
       </section>
 
@@ -59,7 +59,7 @@
      
 	      <h3>a. Sierpinski Triangle</h3>
 <p style="text-indent: 40px; line-height: 1.6;">
-This lab begins with defining to draw a triangle with the function "draw_triangle" which takes in the argument length and draws an equilateral triangle. The system is setup to face 90 so the drawing will begin horizontal moving toward the viewers right, then rotate counter clockwise on the screen where the second line will be drawn. When the three passes of the for loop are completed the pointer will return to the original direction and position. 
+This lab begins by defining a function, draw_triangle, which takes an argument, length, and draws an equilateral triangle. The system is set up to face 90 degrees, ensuring that the drawing starts horizontally toward the viewer’s right. After drawing the first side, the turtle rotates counterclockwise, drawing the second side. Once the for loop completes three passes, the pointer returns to its original direction and position, completing the triangle.
         </p>
 
 <pre><code class="language-python">
@@ -71,7 +71,7 @@ def draw_triangle(length):
 </code></pre>
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
-The next function defines in the code is named "sierpinski_triangle" and takes the length argument and an additional argument named "order". This function is and if/else state and uses the recursian and the reduction of the "order" variable to reach a base case. The code reduces the length by 2 and the data is loaded back into the same function much like lab 2. The "sierpinski_triangle" funcation calls backwards function twice in the code below. 
+The next function defined in the code is sierpinski_triangle, which takes the length argument and an additional argument named order. This function is implemented using an if/else statement and utilizes recursion, progressively reducing the order variable until it reaches the base case. The code reduces the length by a factor of 2, and the function calls itself recursively, much like in Lab 2. Additionally, the sierpinski_triangle function includes two backward function calls in the code below.
 </p>		
 <pre><code class="language-python">
 # Define the recursive Sierpinski triangle function
@@ -93,7 +93,7 @@ def sierpinski_triangle(length, order):
 </code></pre>	
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
-The inclusion of backwards is allowing the triangles to "fit" more than one inside the outter triangles. The concept of order and the recursion allows to interpret the inner smallest trianles at order zero, the table below compares the valus of the variable "order" and "length". From the table below and the code, the only time a triangle is drawn is when the length is 25, the smallest length calcualted. 	
+The inclusion of backward allows multiple triangles to be nested within the outer triangles. The concept of order and recursion ensures that the smallest inner triangles are drawn at order zero. The table below compares the values of the variables order and length. Based on the table and the code, a triangle is only drawn when length reaches 25, which is the smallest calculated length.	
 </p>
 
 	      	    
@@ -138,7 +138,7 @@ The inclusion of backwards is allowing the triangles to "fit" more than one insi
 
 
 <p style="text-indent: 40px; line-height: 1.6;">
-The image below will try to show that when the order varaible was changed from 4 to 2 in the lower section, the amount of inner triangles was not created. The forward, backward, left and right still mages the placement of three "sections" or the same order and length. 
+The image below illustrates how changing the order variable from 4 to 2 in the lower section affects the number of inner triangles created. When the order is reduced, fewer recursive calls are made, resulting in a simpler structure. However, the forward, backward, left, and right functions still manage the placement of three sections, maintaining the same order and length distribution.
 </p>	
 
         <figure>
@@ -155,7 +155,7 @@ The image below will try to show that when the order varaible was changed from 4
         </figure>
 
 <p style="text-indent: 40px; line-height: 1.6;">
- This example of recursive function calls draws the smallest set first, uses a variable decrement to reach a base case. To calculate how many of the smallest size of length will be drawn and relate tovariabel order, $$ =3(n^n), $$.
+This example of recursive function calls draws the smallest set of triangles first, using a variable decrement to reach the base case. To calculate the total number of the smallest triangles drawn, we can relate it to the variable order using the formula: $$ =3(n^n), $$ where n represents the recursion depth (order). This exponential relationship demonstrates how increasing the order significantly increases the number of triangles drawn.
 </p>
 
 
@@ -166,7 +166,10 @@ The image below will try to show that when the order varaible was changed from 4
 	
       </section>
 <p style="text-indent: 40px; line-height: 1.6;">	      
-This next section for the lab uses a library import to include numpy and sets as the variable no, then also matplot as plot. This is common to setup and use functions of these libnraries. 
+The next section of the lab imports the NumPy and Matplotlib libraries, assigning them shorthand names for convenience.
+NumPy is imported and referenced as np.
+Matplotlib's pyplot module is imported and referenced as plt.
+This setup is a common practice in Python programming, allowing for efficient use of mathematical operations and visualization functions from these libraries.
 </p>	
 	    
 <pre><code class="language-python">
@@ -176,15 +179,29 @@ import matplotlib.pyplot as plt
 
 	    
 <p style="text-indent: 40px; line-height: 1.6;">
-This code is going to use numerical array, to begin there is a setup for all zeros in a m by n matrix of 100 by 100. To display the way the plot will be used, there is a plot and a placement of a one, as in binary one being the state of on, and a plot is shown to express where the coordiante of (0,50) is located. This output cell hass all black cells with a whiote cell in the middle of the top row. m being rows and n being coplumns, this placement of (0,50). 
+This code utilizes a numerical array, starting with the initialization of a 100 × 100 matrix filled with zeros. This matrix represents an m × n grid, where m denotes the number of rows and n denotes the number of columns.
+
+To demonstrate how the plot will be used, a single value of 1 (representing an "on" state in binary) is placed at coordinate (0,50). This placement is then visualized using a plot, showing a white cell at the center of the top row while all other cells remain black.
+
+This setup establishes the initial condition for a cellular automaton, where the first row begins with a single active cell, influencing the subsequent pattern evolution.
 </p>		
 	    
 <p style="text-indent: 40px; line-height: 1.6;">
-The lab next uses creates a variable named "num" and itializes to the value 90, then a print statement is used to how an 8 bit binary output for the num varialbe. Next a three dementional array of 2 by 2 by 2 is created. After initialized, multiple arrary locations are assigned in a binary order, but because of the ability for the number value 9 in binary to be able to be reversed, there is not an immediate understadn of MSB and LSB position. Reding this cell from top to bottom or reading this from bottom to top yields the same output. 
+Next, the lab creates a variable named num and initializes it with the value 90. A print statement is then used to display the 8-bit binary representation of num.
+
+Following this, a three-dimensional array of size 2 × 2 × 2 is created. After initialization, multiple array locations are assigned values in binary order. However, due to the nature of binary representation, the number 90 in binary can be interpreted in both normal and reversed order, making it unclear which bit is the Most Significant Bit (MSB) and which is the Least Significant Bit (LSB).
+
+This ambiguity arises because reading the binary sequence from top to bottom or bottom to top yields the same output, making it necessary to explicitly define the bit-order convention for proper interpretation.
 </p>
 	    
 <p style="text-indent: 40px; line-height: 1.6;">
-The function CA(X) is defined and called with the 100 by 100 array created earlier. This array only had 1 "on" marked at (0, 50). This function goes through the shape and applies the "rule" created earlier from the binary of "9" much like a look up table. The three demensional array is used to compare the current, previous and next value and the output set in the "rule" array will be plotted as either 1=on or 0=off. The loops are processed downward on the output cell, each time the rule is applied, it is comparing that values of the previous rows left, center and right. The image a table below are to compare the initial rows. 
+The function CA(X) is defined and called using the 100 × 100 array created earlier. Initially, this array contains a single "on" (1) value at coordinate (0,50), with all other cells set to "off" (0).
+
+This function iterates through the grid and applies the predefined "rule" (created earlier) using the binary representation of 9, which serves as a lookup table. The three-dimensional array (2 × 2 × 2) allows for comparison of three neighboring values—the previous row's left, center, and right values—to determine the new cell state in the next row.
+
+Each time the rule is applied, it assigns a 1 (on) or 0 (off) value based on the corresponding rule entry. The loop processes downward through the output grid, updating each row by comparing the values from the previous row.
+
+The following image and table illustrate how the first few rows evolve, showing how the pattern expands based on the rule.
 </p>
 <!-- Insert Table Here -->
 <table>
@@ -217,7 +234,9 @@ The function CA(X) is defined and called with the 100 by 100 array created earli
 </table>
 
 <p>
- The table shows Sierpiński Triangle beginin and the rule will continue to expained into the image output below. 
+The table illustrates the beginning of the Sierpiński Triangle, showing how the pattern starts to form. As the rule is applied iteratively, the triangular fractal structure continues to expand throughout the image output below.
+
+Each subsequent row follows the recursive rule, creating a self-similar pattern that grows symmetrically based on the binary rule logic.
 </p>
         <figure>
           <img
@@ -232,11 +251,18 @@ The function CA(X) is defined and called with the 100 by 100 array created earli
           </figcaption>
         </figure>
 <p style="text-indent: 40px; line-height: 1.6;">
-The image presented in the output cell is the shape based on the rule. This specific rule is called rule 90. The Sierpinski triangle is formed by the Exculsive OR gate meaning that only when only one of neighboring cells from the row above is active will the current cell be activated. Rule 90 is an additive elementary celluar automata[1].
+The image displayed in the output cell represents the shape generated by the applied rule. This specific rule is known as Rule 90. The Sierpiński triangle emerges due to the behavior of the Exclusive OR (XOR) logic gate, meaning that a cell is activated (1) only when exactly one of its two neighboring cells from the row above is active.
+
+Rule 90 belongs to the class of additive elementary cellular automata [1], where the next state of each cell is determined by a simple binary addition modulo 2 (XOR operation). This results in the characteristic fractal-like, self-similar pattern seen in the output.
 </p>
 
 <p style="text-indent: 40px; line-height: 1.6;">
-The next section brings an alternative approach, this version does not use the 3D array as a look up table and instead creates a formula to achieve the same outcome. Bitwise math operation $$ X[i, j] = (rule / (2**(4*X[i-1,j-1] + 2*X[i-1,j] + X[i-1,j+1]))) % 2 $$ this calculates output baced on current value of i and j, or m and n, in previous rows and uses two to the power of the sum of the previous three cells, the applies modulous division where the remainder is the output value of the cell. This would be the same as the loop up table in the manner that when the modulos is applied. 
+The next section introduces an alternative approach to implementing the cellular automaton. Instead of using a 3D array as a lookup table, this version utilizes a formula to achieve the same outcome.
+
+The formula used is: 
+	$$ X[i, j] = (rule / (2**(4*X[i-1,j-1] + 2*X[i-1,j] + X[i-1,j+1]))) % 2 $$ 
+
+This formula calculates the output based on the current values of i and j (or m and n, representing rows and columns) in the previous row.This approach is mathematically equivalent to using a lookup table, as the modulus operation ensures that only the relevant rule bit is used in determining the cell's state.
 </p>
 <p style="text-indent: 40px; line-height: 1.6;">    
 	The previous setup of mathimatical generations is finally altered by changeing the value of the variable "rule". 
@@ -246,7 +272,13 @@ for rule in [30, 62, 90, 110, 126]:
     plot(CA(C))
 </code></pre>
 <p style="text-indent: 40px; line-height: 1.6;">    
-	The for loop goes through changing the value of "rule" and plots the CA funtion.  Rule 30 is called chaotic and special interest by Wolfram and can be used as a random number generator[2]. Rule 62 is another elementary celluar automation that outputs state based on previous neighborsand is the mirror image of rule 118[3]. The asymetrical ouput on the screen has a diagonal nature on the left side of the screen and a horizonal repeating patterns. Rule 90 is the Sierpinski Triangle described above. Rule 110 follows the same rules with the binary expression $$110=01101110$$ as in 64+32+8+4+2=110[4]. This observation is that the left half is poulated while the right half of the screen output is empty. Rule 126 is amphichiral[5]. Rule 126 being amphichiral means it is superposable with its mirror image[6].
+The for loop iterates through different values of rule, applying the CA (cellular automaton) function and plotting the results.
+
+Rule 30 is classified as chaotic and was of special interest to Stephen Wolfram. It has been studied for its random-like behavior and can even be used as a random number generator [2].
+Rule 62 is another elementary cellular automaton that determines the next state based on previous neighbors. It is also the mirror image of Rule 118 [3]. The asymmetrical output appears with a diagonal structure on the left side of the screen, while the right side exhibits horizontal repeating patterns.
+Rule 90 generates the Sierpiński Triangle, as described earlier.
+Rule 110 follows the same process and has a binary representation of 110 = 01101110 (calculated as 64 + 32 + 8 + 4 + 2 = 110) [4]. An interesting observation is that the left half of the screen is populated, while the right half remains empty.
+Rule 126 is classified as amphichiral [5]. This means it is superposable with its mirror image, meaning the pattern remains unchanged when reflected [6].
 </p>	     
 
 <!-- Insert Table Here -->
@@ -315,7 +347,7 @@ for rule in [30, 62, 90, 110, 126]:
      [5] Rule 126. from Wolfram MathWorld. (n.d.). https://mathworld.wolfram.com/Rule126.html 
             </p>   
 <p>
-[6] Rule 126. from Wolfram MathWorld. (n.d.). https://mathworld.wolfram.com/Amphichiral.html
+[6] Amphichiral. from Wolfram MathWorld. (n.d.). https://mathworld.wolfram.com/Amphichiral.html
 	 </p> 
   </main>
 
