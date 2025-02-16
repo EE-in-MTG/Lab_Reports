@@ -61,20 +61,7 @@
 	<!-- -------------------------------------------------------------------------------------------- -->
 	<!-- -------------------------------------------------------------------------------------------- -->
 	<!-- -------------------------------------------------------------------------------------------- -->
-	<pre><code class="language-python">
-	# This is just a sample Python code block
-	# demonstrating how code might be displayed.
 
-	import numpy as np
-	import matplotlib.pyplot as plt
-
-	x = np.linspace(-10, 10, 100)
-	y = 2*x + 5
-
-	plt.plot(x, y)
-	plt.title("Sample Plot")
-	plt.show()
-	</code></pre>
 
 
 
@@ -92,14 +79,20 @@
       
       
         <h2>Results &amp; Analysis</h2>
-        <p>
-          In this placeholder section, you might describe observations,
-          results, or insights gained from any analysis. You can incorporate 
-          references to equations (e.g., $y = mx + b$) or embed images and 
-          other visual aids to illustrate your points.
+<p style="text-indent: 40px; line-height: 1.6;">
+This lab begins with defining to draw a triangle with the function "draw_triangle" which takes in the argument length and draws an equilateral triangle. The system is setup to face 90 so the drawing will begin horizontal moving toward the viewers right, then rotate counter clockwise on the screen where the second line will be drawn. When the three passes of the for loop are completed the pointer will return to the original direction and position. 
         </p>
+<p style="text-indent: 40px; line-height: 1.6;">
+The next function defines in the code is named "sierpinski_triangle" and takes the length argument and an additional argument named "order". This function is and if/else state and uses the recursian and the reduction of the "order" variable to reach a base case. The code reduces the length by 2 and the data is loaded back into the same function much like lab 2. This makes familiarity of the setup easy to understand the code. A question that comes with being familiar would be if there is a process for rescurian of multiple functions. 
+</p>	      
 
-
+	<pre><code class="language-python">
+# Define the function to draw an equilateral triangle
+def draw_triangle(length):
+    for _ in range(3):
+        forward(length)
+        left(120)
+	</code></pre>
 
 
         <figure>
