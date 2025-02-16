@@ -181,62 +181,58 @@ This code is going to use numerical array, to begin there is a setup for all zer
 	    
 <p style="text-indent: 40px; line-height: 1.6;">
 The lab next uses creates a variable named "num" and itializes to the value 90, then a print statement is used to how an 8 bit binary output for the num varialbe. Next a three dementional array of 2 by 2 by 2 is created. After initialized, multiple arrary locations are assigned in a binary order, but because of the ability for the number value 9 in binary to be able to be reversed, there is not an immediate understadn of MSB and LSB position. Reding this cell from top to bottom or reading this from bottom to top yields the same output. 
-        </p>
+</p>
+	    
+<p style="text-indent: 40px; line-height: 1.6;">
+The function CA(X) is defined and called with the 100 by 100 array created earlier. This array only had 1 "on" marked at (0, 50). This function goes through the shape and applies the "rule" created earlier from the binary of "9" much like a look up table. The three demensional array is used to compare the current, previous and next value and the output set in the "rule" array will be plotted as either 1=on or 0=off. The loops are processed downward on the output cell, each time the rule is applied, it is comparing that values of the previous rows left, center and right. The image a table below are to compare the initial rows. 
+</p>
 
 
-
-
-
-
-	      <p>
-For another understanding of recursive function calls, the recursive function could have been rewritten using a for loop. In this case, recursion can be thought of as function calls acting similarly to loop iterations.  Each recursive call being comparable to an execution of the loop, decrementing the "order" variable at each step. Interpreting when the variable "order" and the recursive nature of the function has been drawn onto the output cell below. This would be one example of each so the overlap can be easily identified. 
-	      </p>
+<p>
+ 
+</p>
         <figure>
           <img
-            src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/variableOrder2.jpg"
+            src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/?"
             alt="cvariable order"
             width="600"
             height="400"
             loading="lazy"
           />
           <figcaption>
-            <strong></strong> Segments highlighted of the variable "order". 
+            <strong></strong> The image above helps to userstand the code provided. 
           </figcaption>
         </figure>
 <p style="text-indent: 40px; line-height: 1.6;">
-From the figure above, the table below will relate these sections to their value of the variables which are the order and length when the function is running.
+
 </p>
 	    
 <!-- Insert Table Here -->
 <table>
   <thead>
     <tr>
-      <th>Segment</th>
-      <th>Value of Order</th>
-      <th>Value of length</th>
+      <th>row</th>
+      <th>values in row</th>
+      
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Segment 3</td>
-      <td>      3</td>
-      <td>    400/3</td>
+      <td>0</td>
+      <td>	00000000000000000000000000000100000000000000000000000</td>
          
     </tr>
     <tr>
-      <td>Segment 2</td>
-      <td>      2</td>
-      <td>   (400/3)/3</td>
+      <td>1</td>
+      <td>      00000000000000000000000000001010000000000000000000000</td>
     </tr>
     <tr>
-      <td>Segment 1</td>
-      <td>      1</td>
-      <td>  [(400/3)/3]/3</td>
+      <td>2</td>
+      <td>      00000000000000000000000000010101000000000000000000000</td>
     </tr>
     <tr>
-      <td>Segment 0</td>
-      <td>      0</td>
-      <td>([(400/3)/3]/3)/3</td>
+      <td>3</td>
+      <td>      	00000000000000000000000000101010100000000000000000000</td>
     </tr>
   </tbody>
 </table>
