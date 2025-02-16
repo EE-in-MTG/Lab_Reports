@@ -36,7 +36,7 @@
       <section id="introduction">
         <h2>Introduction</h2>
         <p>
-This is Lab 3: "Three Sides to the Triangle." This lab explores Python code for deconstructing, understanding, and visualizing the Sierpiński triangle while comparing recursive vs. elementary cellular automata. The code generates and outputs a two-dimensional pattern based on rules that depend on the values of nearby cells. The rules are represented in binary form and used to calculate the output.
+This lab provided insights into recursion pattern formation for fractal geometry. This is Lab 3: "Three Sides to the Triangle." This lab explores Python code for deconstructing, understanding, and visualizing the Sierpiński triangle while comparing recursive vs. elementary cellular automata. The code generates and outputs a two-dimensional pattern based on rules that depend on the values of nearby cells. The rules are represented in binary form and used to calculate the output.
         </p>
       </section>
 
@@ -325,7 +325,22 @@ Rule 126 is classified as amphichiral [5]. This means it is superposable with it
       <section id="conclusion">
         <h6>Conclusion</h6>
         <p>
-          conclusion
+          This lab the implements and visualizes elementary cellular automata using Python. The focus of labs include recursive structures, bitwise operations, and rule-based pattern generation, particularly in the context of the Sierpiński Triangle and numerical bitwise based Wolfram rules.
+
+The first section introduced recursion through the sierpinski_triangle function, which used recursion to create equilateral triangles patterns. The relationship between recursion depth  variable "order" and the number of smaller triangles drawn was analyzed to show how recursion increases exponentially.
+
+The second part of the lab introduced cellular automata with a 100 × 100 array initalized with a single 1 at (0,50) and the remaining all zeros. Using Rule 90, the well-known Sierpiński Triangle was generated based on Exclusive OR, XOR logic, where a cell becomes active if only one of its two neighboring cells is active. After using a lookup tables,a mathematical operation was used to complete the same task for the Sierpiński Triangle, both ways created the same output cell.
+
+The final section expanded upon elementary cellular automata, comparing several different Wolfram rules.
+
+Rule 30, noted for its chaotic behavior, has potential applications in random number generation.
+Rule 62, a mirror image of Rule 118, exhibited asymmetrical diagonal patterns with repeating structures.
+Rule 90, forming the Sierpiński Triangle, displayed a predictable self-similar fractal.
+Rule 110, Turing complete, showcased computational complexity where one half of the grid became populated while the other remained empty.
+Rule 126, identified as amphichiral, demonstrated symmetry in its mirrored output.
+Through this lab binary rules created complex patterns by mathematical logic and recursion in Python software functions. 
+
+
         </p>
       </section>
 
