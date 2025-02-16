@@ -161,18 +161,26 @@ The image below will try to show that when the order varaible was changed from 4
 
 
 	      
-<h4>b. section title</h4>
+<h4>b. Cellular Automata</h4>
 
 	
       </section>
 <p style="text-indent: 40px; line-height: 1.6;">	      
-text
-</p>		
+This next section for the lab uses a library import to include numpy and sets as the variable no, then also matplot as plot. This is common to setup and use functions of these libnraries. 
+</p>	
+	    
+<pre><code class="language-python">
+import numpy as np
+import matplotlib.pyplot as plt
+</code></pre>
+
+	    
 <p style="text-indent: 40px; line-height: 1.6;">
-text 
+This code is going to use numerical array, to begin there is a setup for all zeros in a m by n matrix of 100 by 100. To display the way the plot will be used, there is a plot and a placement of a one, as in binary one being the state of on, and a plot is shown to express where the coordiante of (0,50) is located. This output cell hass all black cells with a whiote cell in the middle of the top row. m being rows and n being coplumns, this placement of (0,50). 
 </p>		
+	    
 <p style="text-indent: 40px; line-height: 1.6;">
-text
+The lab next uses creates a variable named "num" and itializes to the value 90, then a print statement is used to how an 8 bit binary output for the num varialbe. Next a three dementional array of 2 by 2 by 2 is created. After initialized, multiple arrary locations are assigned in a binary order, but because of the ability for the number value 9 in binary to be able to be reversed, there is not an immediate understadn of MSB and LSB position. Reding this cell from top to bottom or reading this from bottom to top yields the same output. 
         </p>
 
 
@@ -233,109 +241,6 @@ From the figure above, the table below will relate these sections to their value
   </tbody>
 </table>
 
-
-	      <h5>c. Dragon Curves</h5>
-
-	      <p style="text-indent: 40px; line-height: 1.6;">
-The Dragon Curve function uses order, length and turn direct to draw. In this example the length is set to always be 1 but has a place to alter this and variable new length. Dragon Curve is built on the recursive function and has a base function when the variable order is equal to zero. The first four, beginning with zero, examples for functions in the figure below will show the building up to the Dragon Curve. This is opposite to the normal decrement that is removing one from the current value of the variable "order".  The function has a built in flipflop gate for the direction to alternate the direction and the turn is set to always be 90 degrees. The built-in direction is setup for right/left as positive 90 and negative 90-degree alternating. 
-		      </p>		
-
-
-	              <figure>
-          <img
-            src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/DragonCurveOrder0123.jpg"
-            alt="120 degrees"
-            width="600"
-            height="400"
-            loading="lazy"
-          />
-          <figcaption>
-            <strong></strong> top left order = 0, bottom left order = 1, top right order = 2, bottom right order = 3 
-          </figcaption>
-        </figure>
-      </section>
-
-	    
-	      <p style="text-indent: 40px; line-height: 1.6;">
-The table below helps understand the data used in the Dragon Curve function and predict future uses for variable and dimensions. 
-        </p>
-
-	    
-<!-- Insert Table Here -->
-<table>
-  <thead>
-    <tr>
- 
-      <th>Value of Order</th>
-      <th>Number of Segment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>1</td>   
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td>n</td>
-      <td>2^n</td>
-    </tr>
-  </tbody>
-</table>
-
-
-	    	      <p style="text-indent: 40px; line-height: 1.6;">
-
-        </p>
-
-	    <p style="text-indent: 40px; line-height: 1.6;">
-	The only time data is set to be drawn on the screen is when the "order" variable is equal to zero. The code makes left and right turns durin iterations, the drawing does not happen on every iteration of the function. The order controls the number of times the turtle will change directions, then only on the order zero will there be a draw event. 
-The table below is make to understand the turns used in the Dragon Curve function and shows exponential growth in the decision that is the turn before each segment is drawn at the variable order equals zero. 
-	
-        </p>
-<!-- Insert Table Here -->
-<table>
-  <thead>
-    <tr>
- 
-      <th>Value of Order</th>
-      <th>Turns</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>No turns</td>   
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>R </td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>R L</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>R L R</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>R L R R L</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>R L R R L R L R</td>
-    </tr>
-  </tbody>
-</table>
       <!-- CONCLUSION SECTION -->
       <!-- -------------------------------------------------------------------------------------------- -->
       <!-- -------------------------------------------------------------------------------------------- -->
@@ -344,7 +249,7 @@ The table below is make to understand the turns used in the Dragon Curve functio
       <section id="conclusion">
         <h6>Conclusion</h6>
         <p>
-          Fractal Geometry involves recursive functions and math patterns to be represented on a computer. For this lab, Brownian motion, Koch curves, and Dragon curves iterate through functions and are plotted for interpretation. The Brownian motion showed how random can be applied to degrees in turning. Randomness in directionally selection made the output unpredictable. The Koch curve gave us an inspection of the recursive function and understanding of the base condition when brings recursion to an end. The Dragon curve showed recursion in turning and was difficult to predict the pattern due to the exponentially higher calculations for the turns when including higher order functions. With a better understanding of recursion on a computer platform, functions are and recursion are the main elements for fractal geometry. The big take away is that something has to change and then be feedback in to get recursion. Here the ability to stop with and else/if statement means that on the computer, we can stop the recursion, but I do not see how that is represented in other environments. 
+          conclusion
         </p>
       </section>
 
