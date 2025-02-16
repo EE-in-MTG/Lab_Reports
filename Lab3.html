@@ -93,7 +93,7 @@ def sierpinski_triangle(length, order):
 </code></pre>	
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
-The inclusion of backwards is allowing the triangles to "fit" more than one inside the outter triangles. The concept of order and the recursion allows to interpret the inner smallest trianles at order zero, the table below compares the valus of the variable "order" and "length". 	
+The inclusion of backwards is allowing the triangles to "fit" more than one inside the outter triangles. The concept of order and the recursion allows to interpret the inner smallest trianles at order zero, the table below compares the valus of the variable "order" and "length". From the table below and the code, the only time a triangle is drawn is when the length is 25, the smallest length calcualted. 	
 </p>
 
 	      	    
@@ -110,23 +110,23 @@ The inclusion of backwards is allowing the triangles to "fit" more than one insi
     <tr>
       <td>last</td>
       <td>      4 </td>
-      <td>    400 </td>
+      <td>    200 </td>
          
     </tr>
     <tr>
       <td>fourth </td>
       <td>      3 </td>
-      <td>   200 </td>
+      <td>   100 </td>
     </tr>
     <tr>
       <td>third</td>
       <td>      2</td>
-      <td>  100</td>
+      <td>  50</td>
     </tr>
     <tr>
       <td>second</td>
       <td>      1</td>
-      <td>50</td>
+      <td>25</td>
     </tr>
 	<tr>
       <td>first</td>
@@ -135,7 +135,30 @@ The inclusion of backwards is allowing the triangles to "fit" more than one insi
     </tr>
   </tbody>
 </table>
- 
+
+
+<p style="text-indent: 40px; line-height: 1.6;">
+The image below will try to show that when the order varaible was changed from 4 to 3 in the lower section, the amount of inner triangles was not created. The forward, backward, left and right still mages the placement of three "sections" or the same order and length. 
+</p>	
+
+        <figure>
+          <img
+            src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/L3order.jpg.jpg"
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> Interpreting the 120 degrees right from code drawn onto the output cell. 
+          </figcaption>
+        </figure>
+
+
+
+
+
+	      
 <h4>b. section title</h4>
 
 	
@@ -153,18 +176,7 @@ text
 
 
 
-        <figure>
-          <img
-            src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/120degrees.jpg"
-            alt="120 degrees"
-            width="600"
-            height="400"
-            loading="lazy"
-          />
-          <figcaption>
-            <strong></strong> Interpreting the 120 degrees right from code drawn onto the output cell. 
-          </figcaption>
-        </figure>
+
 
 	      <p>
 For another understanding of recursive function calls, the recursive function could have been rewritten using a for loop. In this case, recursion can be thought of as function calls acting similarly to loop iterations.  Each recursive call being comparable to an execution of the loop, decrementing the "order" variable at each step. Interpreting when the variable "order" and the recursive nature of the function has been drawn onto the output cell below. This would be one example of each so the overlap can be easily identified. 
