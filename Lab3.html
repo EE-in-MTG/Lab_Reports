@@ -234,10 +234,22 @@ The function CA(X) is defined and called with the 100 by 100 array created earli
 <p style="text-indent: 40px; line-height: 1.6;">
 The image presented in the output cell is the shape based on the rule. This specific rule is called rule 90. The Sierpinski triangle is formed by the Exculsive OR gate meaning that only when only one of neighboring cells from the row above is active will the current cell be activated. Rule 90 is an additive elementary celluar automata[1].
 </p>
+
+<p style="text-indent: 40px; line-height: 1.6;">
+The next section brings an alternative approach, this version does not use the 3D array as a look up table and instead creates a formula to achieve the same outcome. Bitwise math operation $$ X[i, j] = (rule / (2**(4*X[i-1,j-1] + 2*X[i-1,j] + X[i-1,j+1]))) % 2 $$ this calculates output baced on current value of i and j, or m and n, in previous rows and uses two to the power of the sum of the previous three cells, the applies modulous division where the remainder is the output value of the cell. This would be the same as the loop up table in the manner that when the modulos is applied. 
+</p>
+<p style="text-indent: 40px; line-height: 1.6;">    
+	The previous setup of mathimatical generations is finally altered by changeing the value of the variable "rule". 
+</p>
+<pre><code class="language-python">
+for rule in [30, 62, 90, 110, 126]:
+    plot(CA(C))
+</code></pre>
+<p style="text-indent: 40px; line-height: 1.6;">    
+	The for loop goes through changing the value of "rule" and plots the CA funtion.  Rule 30 is called chaotic and special interest by Wolfram and can be used as a ranhdom number generator[2]. Rule 62 is another elementary celluar automation that outputs state based on previous neighborsand is the mirror image of fule 118[3]. The asymetrical ouput on the screen has a diagonal nature on the left side of the screen and a horizonal repeating patterns. 
+</p>	     
 	    
-
-
-      <!-- CONCLUSION SECTION -->
+	    <!-- CONCLUSION SECTION -->
       <!-- -------------------------------------------------------------------------------------------- -->
       <!-- -------------------------------------------------------------------------------------------- -->
       <!-- -------------------------------------------------------------------------------------------- -->
@@ -252,9 +264,20 @@ The image presented in the output cell is the shape based on the rule. This spec
      
   <h6>reference</h6>   
            </p>
-     [1] Rule 90. from Wolfram MathWorld. (n.d.). https://mathworld.wolfram.com/Rule90.html 
+     [1] Rule 30. from Wolfram MathWorld. (n.d.). https://mathworld.wolfram.com/Rule30.html 
             </p>
-     
+	</p>
+     [2] Rule 62. from Wolfram MathWorld. (n.d.). https://mathworld.wolfram.com/Rule62.html 
+            </p>
+             </p>
+     [3] Rule 90. from Wolfram MathWorld. (n.d.). https://mathworld.wolfram.com/Rule90.html 
+            </p>
+	</p>
+     [4] Rule 110. from Wolfram MathWorld. (n.d.). https://mathworld.wolfram.com/Rule110.html 
+            </p>   
+	    	</p>
+     [5] Rule 126. from Wolfram MathWorld. (n.d.). https://mathworld.wolfram.com/Rule126.html 
+            </p>   
   </main>
 
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
