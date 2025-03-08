@@ -19,6 +19,9 @@ Lab 3: https://ee-in-mtg.github.io/Lab_Reports/Lab3.html
 
  Colab: Copy of Module 3 Hahn MTG 6415 Fractal Geometry 2024.ipynb
         https://colab.research.google.com/drive/1-cKW5f0vXz3-rHAZdA1ZsD7QQIDTJ4Oa
+        
+Lab 4: https://ee-in-mtg.github.io/Lab_Reports/Lab4.html          
+  Colab: https://colab.research.google.com/drive/1d9WK30TN60Siw0f0AZ07O8tZ4nxKY1dt#scrollTo=wsSBJtxGswcx
 
 # Notes
 Hello World!
