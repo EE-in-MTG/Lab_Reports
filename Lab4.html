@@ -93,22 +93,23 @@ At each branching point, the tree recursively splits into two smaller branches a
 If this tree were extended into three dimensions, additional angles of rotation  as  branches move up or down in the Z axis.  The current implementation provides a simple yet two-dimensional space while offering potential extensions into more complex regions. In linear algebra, we are taught that mathematical principles in two and three dimensions can be extended to higher dimensions. However, as humans, we struggle to intuitively grasp a 20-dimensional dataset or matrix. If the fourth dimension is time, then features such as color or other visual attributes could potentially be used to express complex data in a geometric representation.
 </p>		
 <pre><code class="language-python">
-# Define the recursive Sierpinski triangle function
-def sierpinski_triangle(length, order):
-    if order == 0:
-        draw_triangle(length)
-    else:
-        sierpinski_triangle(length / 2, order - 1)
-        forward(length / 2)
-        sierpinski_triangle(length / 2, order - 1)
-        backward(length / 2)
-        left(60)
-        forward(length / 2)
-        right(60)
-        sierpinski_triangle(length / 2, order - 1)
-        left(60)
-        backward(length / 2)
-        right(60)
+# Initialize the turtle
+initializeTurtle(initial_window_size=(500, 500))
+
+# Set up the turtle's starting position and orientation
+jump(250, 450)  # Starting position at the bottom center of the canvas
+face(0)
+color('green')  # Set the pen color
+
+# Set the length and depth for the fractal tree
+length = 100  # Initial length of the main trunk
+depth = 7     # Recursion depth (number of branching levels)
+
+# Draw the fractal tree
+fractal_tree(length, depth)
+
+# Display the drawing
+show()
 </code></pre>	
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
