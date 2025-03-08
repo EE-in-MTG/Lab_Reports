@@ -6,7 +6,7 @@
 <html>
 <head> <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="stylesheet" href="https://latex.vercel.app/style.css" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css"/><script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
 
-<title>Fractal Geometry Lab Report 4 Trees</title>
+<title>Fractal Geometry Lab Report 4 Fractal Trees</title>
 
 </head>
 	
@@ -61,7 +61,7 @@ This report explores the concept of fractal trees, a recursive geometric structu
      
 	      <h3>a. Recursively draw fractal trees</h3>
 <p style="text-indent: 40px; line-height: 1.6;">
-This lab begins by defining a function, fractal_tree with the lenth and depth parameters. When the tree is in th eoutput, the first impression is to count how many branches, this is always the same aount and is equal to the variable depth. 
+This lab begins by defining a function, fractal_tree with the lenth and depth parameters. When the tree is in the output, the first impression is to count how many branches, this is always the same amount and is equal to the variable depth. 
         </p>
 
 <pre><code class="language-python">
@@ -84,7 +84,13 @@ def fractal_tree(length, depth):
 </code></pre>
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
-The next function defined in the code is sierpinski_triangle, which takes the length argument and an additional argument named order. This function is implemented using an if/else statement and utilizes recursion, progressively reducing the order variable until it reaches the base case. The code reduces the length by a factor of 2, and the function calls itself recursively, much like in Lab 2. Additionally, the sierpinski_triangle function includes two backward function calls in the code below.
+he fractal_tree function generates a fractal structure using two parameters: length, which determines the length of the current branch, and depth, which controls the number of recursive levels. The complexity of the tree is based on the number of these levels. The function begins by checking if the depth has reached the base case of zero; if so, it terminates. If the base case is not met, the function moves the turtle forward by the given length to draw the main trunk. The turtle then turns 30 degrees to the left and calls the function recursively to create the left sub-branch at 70% of the original length.
+
+After completing the left branch, the turtle turns 60 degrees to the right, effectively shifting 30 degrees to the right from the original position, and then calls the function again to create the right sub-branch. Once both branches are drawn, the turtle turns back left by 30 degrees and moves backward to its previous position, ensuring that recursion maintains a structured branching pattern. This return to the starting position is key to the tree’s structure; it is not just a fractal infinitely spiraling inward. Instead, this pattern follows a linear movement, with each depth level crossing a defined space.
+
+At each branching point, the tree recursively splits into two smaller branches at fixed angles, creating a symmetric structure. The recursive nature of the function mirrors the growth patterns found in real trees, where smaller branches emerge from larger ones in a self-similar fashion. The use of left and right turns ensures that each split follows a predictable pattern, preventing the fractal from becoming asymmetrical.
+
+If this tree were extended into three dimensions, additional angles of rotation  as  branches move up or down in the Z axis.  The current implementation provides a simple yet two-dimensional space while offering potential extensions into more complex regions. In linear algebra, we are taught that mathematical principles in two and three dimensions can be extended to higher dimensions. However, as humans, we struggle to intuitively grasp a 20-dimensional dataset or matrix. If the fourth dimension is time, then features such as color or other visual attributes could potentially be used to express complex data in a geometric representation.
 </p>		
 <pre><code class="language-python">
 # Define the recursive Sierpinski triangle function
@@ -110,53 +116,15 @@ The inclusion of backward allows multiple triangles to be nested within the oute
 </p>
 
 	      	    
-<!-- Insert Table Here -->
-<table>
-  <thead>
-    <tr>
-      <th># sides of smallest length</th>
-      <th>Value of Order</th>
-      <th>Value of length</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>243</td>
-      <td>      4 </td>
-      <td>    200 </td>
-         
-    </tr>
-    <tr>
-      <td>81 </td>
-      <td>      3 </td>
-      <td>   100 </td>
-    </tr>
-    <tr>
-      <td>27</td>
-      <td>      2</td>
-      <td>  50</td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td>      1</td>
-      <td>25</td>
-    </tr>
-	<tr>
-      <td>3</td>
-      <td>      0</td>
-      <td>25</td>
-    </tr>
-  </tbody>
-</table>
 
 
 <p style="text-indent: 40px; line-height: 1.6;">
-The image below illustrates how changing the order variable from 4 to 2 in the lower section affects the number of inner triangles created. When the order is reduced, fewer recursive calls are made, resulting in a simpler structure. However, the forward, backward, left, and right functions still manage the placement of three sections, maintaining the same order and length distribution.
+The image below illustrates how the tree has a left and a right to each stem, there fore gaining exponential in base 2. The calcuation for bits can be used for max terms, 2, 4, 8, 16, 32, 64 and so on. 
 </p>	
 
         <figure>
-          <img
-            src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/blob/main/Lab4_1.jpgg"
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab4_1.jpg"
 	
             alt="120 degrees"
             width="600"
