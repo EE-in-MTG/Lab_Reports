@@ -37,7 +37,7 @@
       <section id="introduction">
         <h2>Introduction</h2>
         <p>
-This report explores the concept of fractal trees, a recursive geometric structure that mimics natural branching patterns. Using Turtle Graphics, a program is implemented to generate a fractal tree by recursively splitting branches into smaller sub-branches at a fixed angle and scale. The study highlights the fundamental principles of recursion, self-similarity, and base cases in fractal geometry. By applying recursive algorithms, the report demonstrates how fractal trees can model naturally occurring patterns such as trees, rivers, and lightning bolts. The findings reinforce the significance of recursion in computational geometry and its applications in computer graphics and natural simulations. Fractals are mathematical structures that exhibit self-similarity at various scales and are widely observed in nature. Among these, fractal trees serve as a fundamental example of recursion in geometry, where each branch continuously splits into smaller branches following a defined pattern. In this lab, we investigate how fractal trees can be generated through recursive programming, utilizing Turtle Graphics to visualize the process. By assigning a base case, the recursion is controlled to prevent infinite branching. The goal of this report is to analyze the implementation of fractal trees, understand the role of recursion in their formation, and explore their relevance in computer graphics and mathematical modeling.
+This report explores the concept of fractal trees, a recursive geometric structure that mimics natural branching patterns and exhibits self-similarity at various scales. Using Turtle Graphics, a program is implemented to generate a fractal tree by recursively splitting branches into smaller sub-branches at a fixed angle and scale. Fractal trees serve as a fundamental example of recursion in geometry, where each branch continuously divides following a defined pattern. By applying recursive algorithms, this study demonstrates how fractal trees model naturally occurring structures such as trees, rivers, and lightning bolts. A base case is assigned to control recursion and prevent infinite branching. The goal of this report is to analyze the implementation of fractal trees, understand the role of recursion in their formation, and explore their significance in computational geometry, computer graphics, and natural simulations.
           
         </p>
       </section>
@@ -59,17 +59,28 @@ This report explores the concept of fractal trees, a recursive geometric structu
       
       
      
-	      <h3>a. Sierpinski Triangle</h3>
+	      <h3>a. Recursively draw fractal trees</h3>
 <p style="text-indent: 40px; line-height: 1.6;">
 This lab begins by defining a function, draw_triangle, which takes an argument, length, and draws an equilateral triangle. The system is set up to face 90 degrees, ensuring that the drawing starts horizontally toward the viewer’s right. After drawing the first side, the turtle rotates counterclockwise, drawing the second side. Once the for loop completes three passes, the pointer returns to its original direction and position, completing the triangle.
         </p>
 
 <pre><code class="language-python">
-# Define the function to draw an equilateral triangle
-def draw_triangle(length):
-    for _ in range(3):
+# Function to draw a fractal tree using recursion
+def fractal_tree(length, depth):
+    if depth == 0:
+        return
+    else:
         forward(length)
-        left(120)
+        left(30)
+
+        fractal_tree(length * 0.7, depth - 1)
+
+        right(60)
+
+        fractal_tree(length * 0.7, depth - 1)
+
+        left(30)
+        backward(length)
 </code></pre>
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
@@ -145,14 +156,15 @@ The image below illustrates how changing the order variable from 4 to 2 in the l
 
         <figure>
           <img
-            src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/L3orderb.jpg"
+            src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/blob/main/Lab4_1.jpgg"
+	
             alt="120 degrees"
             width="600"
             height="400"
             loading="lazy"
           />
           <figcaption>
-            <strong></strong> In the upper plot order variable is four, lower plot has variable order set to 2. 
+            <strong></strong> First Tree with depth 7 
           </figcaption>
         </figure>
 
