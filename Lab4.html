@@ -37,7 +37,7 @@
       <section id="introduction">
         <h2>Introduction</h2>
         <p>
-This report explores the concept of fractal trees, a recursive geometric structure that mimics natural branching patterns and exhibits self-similarity at various scales. Using Turtle Graphics, a program is implemented to generate a fractal tree by recursively splitting branches into smaller sub-branches at a fixed angle and scale. Fractal trees serve as a fundamental example of recursion in geometry, where each branch continuously divides following a defined pattern. By applying recursive algorithms, this study demonstrates how fractal trees model naturally occurring structures such as trees, rivers, and lightning bolts. A base case is assigned to control recursion and prevent infinite branching. The goal of this report is to analyze the implementation of fractal trees, understand the role of recursion in their formation, and explore their significance in computational geometry, computer graphics, and natural simulations.
+This report explores the concept of fractal trees, a recursive geometric structure that mimics natural branching patterns and exhibits self-similarity at various scales. Using Turtle Graphics, a program is implemented to generate a fractal tree by recursively splitting branches into smaller sub-branches at a fixed angle and scale. Fractal trees serve as a fundamental example of recursion in geometry, where each branch continuously divides following a defined pattern. By applying recursive algorithms, this study demonstrates how fractal trees model naturally occurring structures such as trees, rivers, and lightning bolts. These clostly relate to the flowers "baby's breath" and dandelions. A base case is assigned to control recursion and prevent infinite branching. The goal of this report is to analyze the implementation of fractal trees, understand the role of recursion in their formation, and explore their significance in computational geometry, computer graphics, and natural simulations.
           
         </p>
       </section>
@@ -125,7 +125,7 @@ The image below illustrates how the tree has a left and a right to each stem, th
 
         <figure>
           <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab4_1.jpg"
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab4_2.jpg"
 	
             alt="120 degrees"
             width="600"
@@ -138,54 +138,63 @@ The image below illustrates how the tree has a left and a right to each stem, th
         </figure>
 
 <p style="text-indent: 40px; line-height: 1.6;">
-This example of recursive function calls draws the smallest set of triangles first, using a variable decrement to reach the base case. To calculate the total number of the smallest triangles drawn, we can relate it to the variable order using the formula: $$ =3(n^n), $$ where n represents the recursion depth (order). This exponential relationship demonstrates how increasing the order significantly increases the number of triangles drawn.
+In the next section the tree is build with a different function, where the base case of 0 quits the function before, now the comparison to greater than 3 is involved. 
 </p>
 
-
-
-	      
-<h4>b. Cellular Automata</h4>
-
 	
-      </section>
-<p style="text-indent: 40px; line-height: 1.6;">	      
-The next section of the lab imports the NumPy and Matplotlib libraries, assigning them shorthand names for convenience.
-NumPy is imported and referenced as np.
-Matplotlib's pyplot module is imported and referenced as plt.
-This setup is a common practice in Python programming, allowing for efficient use of mathematical operations and visualization functions from these libraries.
-</p>	
 	    
 <pre><code class="language-python">
-import numpy as np
-import matplotlib.pyplot as plt
+# Define the fractal tree function
+def build_tree(branch_length, shorten_by, angle):
+    if branch_length > 3:
+
+        forward(branch_length)
+
+        new_length = branch_length - shorten_by
+
+        left(angle)
+
+        build_tree(new_length, shorten_by, angle)
+
+        right(angle * 2)
+
+        build_tree(new_length, shorten_by, angle)
+
+        left(angle)
+
+        backward(branch_length)
 </code></pre>
 
 	    
 <p style="text-indent: 40px; line-height: 1.6;">
-This code utilizes a numerical array, starting with the initialization of a 100 × 100 matrix filled with zeros. This matrix represents an m × n grid, where m denotes the number of rows and n denotes the number of columns.
-
-To demonstrate how the plot will be used, a single value of 1 (representing an "on" state in binary) is placed at coordinate (0,50). This placement is then visualized using a plot, showing a white cell at the center of the top row while all other cells remain black.
-
-This setup establishes the initial condition for a cellular automaton, where the first row begins with a single active cell, influencing the subsequent pattern evolution.
+TEXT1
 </p>		
-	    
+
+	      <p style="text-indent: 40px; line-height: 1.6;">
+The image below illustrates how the tree has a left and a right to each stem, there fore gaining exponential in base 2. The calcuation for bits can be used for max terms, 2, 4, 8, 16, 32, 64 and so on. 
+</p>	
+
+        <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab4_1.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> First Tree with depth 7 
+          </figcaption>
+        </figure>
+	      
 <p style="text-indent: 40px; line-height: 1.6;">
-Next, the lab creates a variable named num and initializes it with the value 90. A print statement is then used to display the 8-bit binary representation of num.
-
-Following this, a three-dimensional array of size 2 × 2 × 2 is created. After initialization, multiple array locations are assigned values in binary order. However, due to the nature of binary representation, the number 90 in binary can be interpreted in both normal and reversed order, making it unclear which bit is the Most Significant Bit (MSB) and which is the Least Significant Bit (LSB).
-
-This ambiguity arises because reading the binary sequence from top to bottom or bottom to top yields the same output, making it necessary to explicitly define the bit-order convention for proper interpretation.
+Text 2 
 </p>
 	    
 <p style="text-indent: 40px; line-height: 1.6;">
-The function CA(X) is defined and called using the 100 × 100 array created earlier. Initially, this array contains a single "on" (1) value at coordinate (0,50), with all other cells set to "off" (0).
-
-This function iterates through the grid and applies the predefined "rule" (created earlier) using the binary representation of 9, which serves as a lookup table. The three-dimensional array (2 × 2 × 2) allows for comparison of three neighboring values—the previous row's left, center, and right values—to determine the new cell state in the next row.
-
-Each time the rule is applied, it assigns a 1 (on) or 0 (off) value based on the corresponding rule entry. The loop processes downward through the output grid, updating each row by comparing the values from the previous row.
-
-The following image and table illustrate how the first few rows evolve, showing how the pattern expands based on the rule.
-</p>
+Text3
+	
 <!-- Insert Table Here -->
 <table>
   <thead>
