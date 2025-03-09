@@ -143,7 +143,6 @@ The image below illustrates how the tree has a left and a right to each stem, th
 In the next function, the tree is built differently for controling branches and angles.  Unlike before where the base case of 0 quits the function before, now the comparison to greater than 3 is involved. The new function "build_tree" uses a variable for branch legth, the amount shorthen by, and angle. This function shows how easily the additional variables can give control over the function's branching angles and lengths. Here, passing the vaule of the angle will be able to adjust the braches location from the prior stem, the function uniquly doubles this amount to return and extend the angle in the other direction. This is still very simple code, with the length being shortened by a variable, the user controls the shape, but this code does get odd that it only has an if statement, never giving direction what to do in the base case, the code exits the if statement therefore exiting the function as the variable marks complete at 3.   This is more elaborate and can see overlap almost tricks the eye into a 3d feel of what the shape would do. 
 </p>
 
-	
 	    
 <pre><code class="language-python">
 # Define the fractal tree function
@@ -175,7 +174,7 @@ Below is a visual comparison of the default variables and after a change is run.
 
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
-
+We can change the lenth and agles with variables and visual inspect the differences below. 
 </p>
         <figure>
           <img 
@@ -187,7 +186,7 @@ Below is a visual comparison of the default variables and after a change is run.
             loading="lazy"
           />
           <figcaption>
-            <strong></strong> A tree with default variables. 
+            <strong></strong> A tree with default variables. build_tree(100, 8, 15) 
           </figcaption>
         </figure>	    
 
@@ -206,7 +205,39 @@ Below is a visual comparison of the default variables and after a change is run.
           </figcaption>
         </figure>	    
 
+<p style="text-indent: 40px; line-height: 1.6;">
+Additionaly, in the efforts of showing control, to get control over the angle can allow for other uses that may seem inorganic. When changing the values to represent a 90 degree angle, the patter shifts to right angles. Probably some of the greatest invensions started out with, "Now what can this be used for?" 
+</p>
+<pre><code class="language-python">
+# Initialize the turtle
+initializeTurtle(initial_window_size=(1000, 1000))
 
+# Set up the turtle's starting position and orientation
+jump(500, 900)  # Starting position at the bottom center of the canvas
+face(0)
+color('green')  # Set the pen color
+
+# Draw the fractal tree
+build_tree(100, 8, 90)
+
+# Display the drawing
+show()
+</code></pre>
+
+
+	      	             <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab4_5.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> A tree with default variables. 
+          </figcaption>
+        </figure>
 	    
 	    <!-- CONCLUSION SECTION -->
       <!-- -------------------------------------------------------------------------------------------- -->
