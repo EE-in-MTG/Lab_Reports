@@ -140,7 +140,7 @@ The image below illustrates how the tree has a left and a right to each stem, th
     <h4>b. Control branching angles and lengths</h4>
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
-In the next section the tree is build with a different function, where the base case of 0 quits the function before, now the comparison to greater than 3 is involved. The new function "build_tree" uses a variable for branch legth, the amount shorthen by, and angle. This function shows how easily the additional variables can give control over the function's branching angles and lengths. Here, passing the vaule of the angle will be able to adjust the braches location from the prior stem, the function uniquly doubles this amount to return and extend the angle in the other direction. This is still very simple code, with the length being shortened by a variable, the user controls the shape, but this code does get odd that it only has an if statement, never giving direction what to do in the base case, the code exits the if statement therefore exiting the function as the variable marks complete at 3.   This is more elaborate and can see overlap almost tricks the eye into a 3d feel of what the shape would do. 
+In the next function, the tree is built differently for controling branches and angles.  Unlike before where the base case of 0 quits the function before, now the comparison to greater than 3 is involved. The new function "build_tree" uses a variable for branch legth, the amount shorthen by, and angle. This function shows how easily the additional variables can give control over the function's branching angles and lengths. Here, passing the vaule of the angle will be able to adjust the braches location from the prior stem, the function uniquly doubles this amount to return and extend the angle in the other direction. This is still very simple code, with the length being shortened by a variable, the user controls the shape, but this code does get odd that it only has an if statement, never giving direction what to do in the base case, the code exits the if statement therefore exiting the function as the variable marks complete at 3.   This is more elaborate and can see overlap almost tricks the eye into a 3d feel of what the shape would do. 
 </p>
 
 	
@@ -169,26 +169,10 @@ def build_tree(branch_length, shorten_by, angle):
 
 	    
 <p style="text-indent: 40px; line-height: 1.6;">
-TEXT1
+Below is a visual comparison of the default variables and after a change is run. 
 </p>		
 
-	      <p style="text-indent: 40px; line-height: 1.6;">
-The image below illustrates how the tree has a left and a right to each stem, there fore gaining exponential in base 2. The calcuation for bits can be used for max terms, 2, 4, 8, 16, 32, 64 and so on. 
-</p>	
 
-        <figure>
-          <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab4_1.jpg"
-	
-            alt="120 degrees"
-            width="600"
-            height="400"
-            loading="lazy"
-          />
-          <figcaption>
-            <strong></strong> First Tree with depth 7 
-          </figcaption>
-        </figure>
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
 
@@ -203,12 +187,24 @@ The image below illustrates how the tree has a left and a right to each stem, th
             loading="lazy"
           />
           <figcaption>
-            <strong></strong> First Tree with depth 7 
+            <strong></strong> A tree with default variables. 
           </figcaption>
         </figure>	    
-<p style="text-indent: 40px; line-height: 1.6;">
-Text3
+
+
+	             <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab4_3.jpg"
 	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> A tree with default variables. 
+          </figcaption>
+        </figure>	    
 
 
 	    
