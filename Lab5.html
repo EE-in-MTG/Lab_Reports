@@ -84,21 +84,17 @@ depth = 6         # Number of levels to draw
 </code></pre>
 
 <p style="text-indent: 40px; line-height: 1.6;">
-The NumPy Library is for computing arrays and matrix math in Python. Pyplot is function of the Matplotlib library and is used for visualization. The initial parameters are set to initialize the Cantor Set and comments are provided as descriptions. The first horizontal bar is drawn from x_start to x_end at a given y_position, with bar height set to 5,  all segments with have same deminsion. The variable "spacing", set to 10, determines the vertical distance between successive levels of the Cantor Set, while the depth parameter, set to 6, specifies the number of recursive levels to be drawn, creating the characteristic fractal pattern. 
+The NumPy Library is for computing arrays and matrix math in Python. Pyplot is function of the Matplotlib library and is used for visualization. The initial parameters are set to initialize the Cantor Set and comments are provided as descriptions. The first horizontal bar is drawn from x_start to x_end at a given y_position, with bar height set to 5,  all segments with have same deminsion. The variable "spacing", set to 10, determines the vertical distance between iterations of the Cantor Set. The variable  "depth parameter" is set to 6 and will control number of fractal. 
         </p>	    
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
-describe next code 
-        </p>	 	      
-
-<pre><code class="language-python">
-insert code here 2
-</code></pre>	      
-	      
+The next code define the function "cantor_set" to taker in four variables x_start, x_end, y_position, and depth. First, the functions checks for a base case condition, in this case if the variable depth is equal to zero, the function stops and returns an empty list. With recursian there is a built in base case to prevent processor and momory issues becasue the function continues without an ending either. The issue is computing resources, if there was an need to create a source of purpetual computing, the function would need to release or reuse memmory. In embedded systems, direct memory access is used more often based on limited resources, defining a base memory address is common in embedded systems, such as running Linux on an SD card when programming cross platform.  So having direct access to memory addresses and logical bit manipulations can have direct memory access without processor intervention. This bare metal programming may have never been used to create a fractal that can run without end. 
+ 
+ </p>	 
 <p style="text-indent: 40px; line-height: 1.6;">
-discuss code section 2 
+This code calls on itself untill the base condition is met. Below, the "x_start + (x_end - x_start) / 3" is feed backinto the canter set for the variable "x_end". The size is changed in the X axis 
 </p>		
-	      
+
 <pre><code class="language-python">
 # Define a function to create the Cantor Set pattern
 def cantor_set(x_start, x_end, y_position, depth):
@@ -115,6 +111,14 @@ def cantor_set(x_start, x_end, y_position, depth):
 
     # Combine the current segments with the results from recursive calls
     return left_segment + right_segment + left_recursive + right_recursive
+
+</code></pre>	      
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+discuss code section 2 
+</p>		
+	      
+<pre><code class="language-python">
 
 # Generate Cantor Set segments data
 segments = np.array(cantor_set(x_start, x_end, y_position, depth))  # Convert to an array for easy plotting
