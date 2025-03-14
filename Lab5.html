@@ -92,7 +92,10 @@ The next code define the function "cantor_set" to taker in four variables x_star
  
  </p>	 
 <p style="text-indent: 40px; line-height: 1.6;">
-This code calls on itself untill the base condition is met. Below, the "x_start + (x_end - x_start) / 3" is feed backinto the canter set for the variable "x_end". The size is changed in the X axis 
+This code calls on itself untill the base condition is met. Below, the line segment is divided into three equal parts. The left segment will be the first third of the line and the right segment will be the last third of the line. This is done by dividing by three and positioning the calulation in the middle variable for the left segment and the first variable for the right segment. 
+
+
+	
 </p>		
 
 <pre><code class="language-python">
