@@ -1,0 +1,261 @@
+<!-- INTRODUCTION SECTION -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------- --> 
+<!-- -------------------------------------------------------------------------------------------- -->
+<html>
+<head> <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="stylesheet" href="https://latex.vercel.app/style.css" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css"/><script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+
+<title>Fractal Geometry Lab Report 4 Fractal Trees</title>
+
+</head>
+	
+<body id="top">
+
+
+
+
+  <header>
+    <h1>Fractal Geometry Lab Report 5</h1>
+	  
+    <p class="author">
+      Joseph D Wilson <br />
+      03/14/2025
+    </p>
+  </header>
+  
+
+
+  <main>
+    <article class="indent-pars">
+      
+      <!-- INTRODUCTION SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="introduction">
+        <h2>Introduction</h2>
+        <p>
+This report explores the concept of fractal trees, a recursive geometric structure that mimics natural branching patterns and exhibits self-similarity at various scales. Using Turtle Graphics, a program is implemented to generate a fractal tree by recursively splitting branches into smaller sub-branches at a fixed angle and scale. Fractal trees serve as a fundamental example of recursion in geometry, where each branch continuously divides following a defined pattern. By applying recursive algorithms, this study demonstrates how fractal trees model naturally occurring structures such as trees, rivers, and lightning bolts. These clostly relate to the flowers "baby's breath" and dandelions. A base case is assigned to control recursion and prevent infinite branching. The goal of this report is to analyze the implementation of fractal trees, understand the role of recursion in their formation, and explore their significance in computational geometry, computer graphics, and natural simulations.
+          
+        </p>
+      </section>
+
+
+     
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+     
+	      <h3>a. Recursively draw fractal trees</h3>
+<p style="text-indent: 40px; line-height: 1.6;">
+This lab begins by defining a function, fractal_tree with the lenth and depth parameters. When the tree is in the output, the first impression is to count how many branches, this is always the same amount and is equal to the variable depth. 
+        </p>
+
+<pre><code class="language-python">
+# Function to draw a fractal tree using recursion
+def fractal_tree(length, depth):
+    if depth == 0:
+        return
+    else:
+        forward(length)
+        left(30)
+
+        fractal_tree(length * 0.7, depth - 1)
+
+        right(60)
+
+        fractal_tree(length * 0.7, depth - 1)
+
+        left(30)
+        backward(length)
+</code></pre>
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+The function "fractal_tree" generates a fractal structure using two parameters: length and depth. The pen down approach to Turtle graphics makes the forward a draw method of the function.  The "depth" variable determines the length of the current branch, and depth, which controls the number of recursive levels. The complexity of the tree is based on the number of these levels. The function begins by checking if the depth has reached the base case of zero; if so, it terminates. If the base case is not met, the function moves the turtle forward by the given length to draw the main trunk. The turtle then turns 30 degrees to the left and calls the function recursively to create the left sub-branch at 70% of the original length.
+
+After completing the left branch, the turtle turns 60 degrees to the right, effectively shifting 30 degrees to the right from the original position, and then calls the function again to create the right sub-branch. Once both branches are drawn, the turtle turns back left by 30 degrees and moves backward to its previous position, ensuring that recursion maintains a structured branching pattern. This return to the starting position is key to the tree’s structure; it is not just a fractal infinitely spiraling inward. Instead, this pattern follows a linear movement, with each depth level crossing a defined space.
+
+At each branching point, the tree recursively splits into two smaller branches at fixed angles, creating a symmetric structure. The recursive nature of the function mirrors the growth patterns found in real trees, where smaller branches emerge from larger ones in a self-similar fashion. The use of left and right turns ensures that each split follows a predictable pattern, preventing the fractal from becoming asymmetrical.
+
+If this tree were extended into three dimensions, additional angles of rotation  as  branches move up or down in the Z axis.  The current implementation provides a simple yet two-dimensional space while offering potential extensions into more complex regions. In linear algebra, we are taught that mathematical principles in two and three dimensions can be extended to higher dimensions. However, as humans, we struggle to intuitively grasp a 20-dimensional dataset or matrix. If the fourth dimension is time, then features such as color or other visual attributes could potentially be used to express complex data in a geometric representation.
+</p>		
+<pre><code class="language-python">
+# Initialize the turtle
+initializeTurtle(initial_window_size=(500, 500))
+
+# Set up the turtle's starting position and orientation
+jump(250, 450)  # Starting position at the bottom center of the canvas
+face(0)
+color('green')  # Set the pen color
+
+# Set the length and depth for the fractal tree
+length = 100  # Initial length of the main trunk
+depth = 7     # Recursion depth (number of branching levels)
+
+# Draw the fractal tree
+fractal_tree(length, depth)
+
+# Display the drawing
+show()
+</code></pre>	
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+The inclusion of backward allows multiple triangles to be nested within the outer triangles. The concept of order and recursion ensures that the smallest inner triangles are drawn at order zero. The table below compares the values of the variables order and length. Based on the table and the code, a triangle is only drawn when length reaches 25, which is the smallest calculated length.	
+</p>
+
+	      	    
+
+
+<p style="text-indent: 40px; line-height: 1.6;">
+The image below illustrates how the tree has a left and a right to each stem, there fore gaining exponential in base 2. The calcuation for bits can be used for max terms, 2, 4, 8, 16, 32, 64 and so on. 
+</p>	
+
+        <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab4_1.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> First Tree with depth 7 
+          </figcaption>
+        </figure>
+
+    <h4>b. Control branching angles and lengths</h4>
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+In the next function, the tree is built differently for controling branches and angles.  Unlike before where the base case of 0 quits the function before, now the comparison to greater than 3 is involved. The new function "build_tree" uses a variable for branch legth, the amount shorthen by, and angle. This function shows how easily the additional variables can give control over the function's branching angles and lengths. Here, passing the vaule of the angle will be able to adjust the braches location from the prior stem, the function uniquly doubles this amount to return and extend the angle in the other direction. This is still very simple code, with the length being shortened by a variable, the user controls the shape, but this code does get odd that it only has an if statement, never giving direction what to do in the base case, the code exits the if statement therefore exiting the function as the variable marks complete at 3.   This is more elaborate and can see overlap almost tricks the eye into a 3d feel of what the shape would do. 
+</p>
+
+	    
+<pre><code class="language-python">
+# Define the fractal tree function
+def build_tree(branch_length, shorten_by, angle):
+    if branch_length > 3:
+
+        forward(branch_length)
+
+        new_length = branch_length - shorten_by
+
+        left(angle)
+
+        build_tree(new_length, shorten_by, angle)
+
+        right(angle * 2)
+
+        build_tree(new_length, shorten_by, angle)
+
+        left(angle)
+
+        backward(branch_length)
+</code></pre>
+
+	    
+<p style="text-indent: 40px; line-height: 1.6;">
+Below is a visual comparison of the default variables and after a change is run. 
+</p>		
+
+
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+We can change the lenth and agles with variables and visual inspect the differences below. 
+</p>
+        <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab4_2.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> A tree with default variables. build_tree(100, 8, 15) 
+          </figcaption>
+        </figure>	    
+
+
+<figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab4_3.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> A tree with alternative 15 degree angles  
+          </figcaption>
+</figure>	    
+
+<p style="text-indent: 40px; line-height: 1.6;">
+Additionaly, in the efforts of showing control, to get control over the angle can allow for other uses that may seem inorganic. When changing the values to represent a 90 degree angle, the pattern shifts to right angles. As inorganic as this became, there were some other alternative 100 and 115 degress used, then the 180 degree trial outputted a straight line. 
+</p>
+<pre><code class="language-python">
+# Initialize the turtle
+initializeTurtle(initial_window_size=(1000, 1000))
+
+# Set up the turtle's starting position and orientation
+jump(500, 900)  # Starting position at the bottom center of the canvas
+face(0)
+color('green')  # Set the pen color
+
+# Draw the fractal tree
+build_tree(100, 8, 90)
+
+# Display the drawing
+show()
+</code></pre>
+<p style="text-indent: 40px; line-height: 1.6;">
+Showing control over the angles, changing to a 90 degree angle tree starts to imagine what else the code could be used for. Industrial applications for reinforment, areas where 90 degrees are not found in nature, like a roads or buildings.
+</p>
+
+<figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab4_4.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> A tree with 90 degree angles variables. 
+          </figcaption>
+</figure>	
+	    
+	    <!-- CONCLUSION SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="conclusion">
+        <h6>Conclusion</h6>
+        <p>
+This lab explores fractal trees, a recursive geometric structure that mimics natural branching patterns. Using Turtle Graphics, two recursive functions, fractal_tree and build_tree, are implemented to generate self-similar tree structures by recursively splitting branches at controlled angles and lengths. The depth of recursion determines the complexity of the fractal, with each iteration producing two smaller branches. The fractal_tree function adheres to a strict symmetrical branching pattern, while build_tree introduces adjustable branching angles and length reductions, allowing greater control over the shape. The results demonstrate how mathematical recursion models natural growth patterns in trees, rivers, and lightning formations. The lab also highlights the connection between fractal geometry when recusivly drawing fractal trees and controlling the branch's angles and lengths. 
+
+        </p>
+      </section>
+
+  </main>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>
