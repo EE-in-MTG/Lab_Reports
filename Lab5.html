@@ -62,7 +62,7 @@ The Cantor Set fractal is constructed by repeatedly removing the middle third of
       
       
      
-	      <h3>a. Recursively draw fractal trees</h3>
+	      <h3>a. Build and Analyze the Canter set.</h3>
 <p style="text-indent: 40px; line-height: 1.6;">
 This lab begins by defining a function, fractal_tree with the lenth and depth parameters. When the tree is in the output, the first impression is to count how many branches, this is always the same amount and is equal to the variable depth. 
         </p>
@@ -110,16 +110,16 @@ for x_start, x_end, y in segments:
 plt.axis('off')
 plt.show()
 </code></pre>
+
+<pre><code class="language-python">
+insert code here 2
+</code></pre>	      
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
-The function "fractal_tree" generates a fractal structure using two parameters: length and depth. The pen down approach to Turtle graphics makes the forward a draw method of the function.  The "depth" variable determines the length of the current branch, and depth, which controls the number of recursive levels. The complexity of the tree is based on the number of these levels. The function begins by checking if the depth has reached the base case of zero; if so, it terminates. If the base case is not met, the function moves the turtle forward by the given length to draw the main trunk. The turtle then turns 30 degrees to the left and calls the function recursively to create the left sub-branch at 70% of the original length.
-
-After completing the left branch, the turtle turns 60 degrees to the right, effectively shifting 30 degrees to the right from the original position, and then calls the function again to create the right sub-branch. Once both branches are drawn, the turtle turns back left by 30 degrees and moves backward to its previous position, ensuring that recursion maintains a structured branching pattern. This return to the starting position is key to the tree’s structure; it is not just a fractal infinitely spiraling inward. Instead, this pattern follows a linear movement, with each depth level crossing a defined space.
-
-At each branching point, the tree recursively splits into two smaller branches at fixed angles, creating a symmetric structure. The recursive nature of the function mirrors the growth patterns found in real trees, where smaller branches emerge from larger ones in a self-similar fashion. The use of left and right turns ensures that each split follows a predictable pattern, preventing the fractal from becoming asymmetrical.
-
-If this tree were extended into three dimensions, additional angles of rotation  as  branches move up or down in the Z axis.  The current implementation provides a simple yet two-dimensional space while offering potential extensions into more complex regions. In linear algebra, we are taught that mathematical principles in two and three dimensions can be extended to higher dimensions. However, as humans, we struggle to intuitively grasp a 20-dimensional dataset or matrix. If the fourth dimension is time, then features such as color or other visual attributes could potentially be used to express complex data in a geometric representation.
+discuss code section 1 
 </p>		
+
+	      
 <pre><code class="language-python">
 # Initialize the turtle
 initializeTurtle(initial_window_size=(500, 500))
@@ -172,33 +172,6 @@ In the next function, the tree is built differently for controling branches and 
 </p>
 
 	    
-<pre><code class="language-python">
-# Define the fractal tree function
-def build_tree(branch_length, shorten_by, angle):
-    if branch_length > 3:
-
-        forward(branch_length)
-
-        new_length = branch_length - shorten_by
-
-        left(angle)
-
-        build_tree(new_length, shorten_by, angle)
-
-        right(angle * 2)
-
-        build_tree(new_length, shorten_by, angle)
-
-        left(angle)
-
-        backward(branch_length)
-</code></pre>
-
-	    
-<p style="text-indent: 40px; line-height: 1.6;">
-Below is a visual comparison of the default variables and after a change is run. 
-</p>		
-
 
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
@@ -206,7 +179,7 @@ We can change the lenth and agles with variables and visual inspect the differen
 </p>
         <figure>
           <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab4_2.jpg"
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab5c.jpg"
 	
             alt="120 degrees"
             width="600"
@@ -221,7 +194,7 @@ We can change the lenth and agles with variables and visual inspect the differen
 
 <figure>
           <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab4_3.jpg"
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab5c.jpg"
 	
             alt="120 degrees"
             width="600"
@@ -257,7 +230,7 @@ Showing control over the angles, changing to a 90 degree angle tree starts to im
 
 <figure>
           <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab4_4.jpg"
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab5e.jpg"
 	
             alt="120 degrees"
             width="600"
@@ -277,7 +250,13 @@ Showing control over the angles, changing to a 90 degree angle tree starts to im
       <section id="conclusion">
         <h6>Conclusion</h6>
         <p>
-This lab explores fractal trees, a recursive geometric structure that mimics natural branching patterns. Using Turtle Graphics, two recursive functions, fractal_tree and build_tree, are implemented to generate self-similar tree structures by recursively splitting branches at controlled angles and lengths. The depth of recursion determines the complexity of the fractal, with each iteration producing two smaller branches. The fractal_tree function adheres to a strict symmetrical branching pattern, while build_tree introduces adjustable branching angles and length reductions, allowing greater control over the shape. The results demonstrate how mathematical recursion models natural growth patterns in trees, rivers, and lightning formations. The lab also highlights the connection between fractal geometry when recusivly drawing fractal trees and controlling the branch's angles and lengths. 
+In this lab, we explored the recursive nature of the Cantor Set, a fundamental example of a dust fractal. By implementing a recursive function in Python and visualizing the fractal using Matplotlib, we observed how the iterative removal of the middle third of each segment results in a fragmented, self-similar structure. This process highlights key concepts in fractal geometry, such as infinite subdivision, self-similarity, and dimensionality reduction.
+
+Through this experiment, we gained a deeper understanding of recursion as a problem-solving approach, demonstrating how complex structures can be generated through simple, repetitive rules. Additionally, by adjusting parameters such as recursion depth, spacing, and segment dimensions, we examined how different factors influence the final fractal shape.
+
+The Cantor Set serves as a foundation for more advanced fractals, such as the Cantor Dust, Sierpiński Carpet, and Menger Sponge, all of which exhibit similar recursive patterns but in higher dimensions. Moreover, dust fractals like the Cantor Set have real-world applications in areas such as signal processing, chaos theory, and natural phenomena modeling.
+
+Overall, this lab provided an engaging and interactive way to explore mathematical fractals, recursion, and visualization techniques. The Cantor Set, despite its simplicity, exemplifies the fascinating complexity that emerges from iterative rules, reinforcing the fundamental principles of fractal geometry and algorithmic design.
 
         </p>
       </section>
