@@ -62,9 +62,10 @@ The Cantor Set fractal is constructed by repeatedly removing the middle third of
       
       
      
-	      <h3>a. Build and Analyze the Canter set.</h3>
+<h3>a. Build and Analyze the Canter set.</h3>
+	      
 <p style="text-indent: 40px; line-height: 1.6;">
-This lab begins by defining a function, fractal_tree with the lenth and depth parameters. When the tree is in the output, the first impression is to count how many branches, this is always the same amount and is equal to the variable depth. 
+The elements of this code begin with importing the libraries and setting up the initial parameters. 
         </p>
 
 <pre><code class="language-python">
@@ -80,6 +81,25 @@ bar_height = 5    # Height of each bar
 spacing = 10      # Space between bars (distance downwards)
 depth = 6         # Number of levels to draw
 
+</code></pre>
+
+<p style="text-indent: 40px; line-height: 1.6;">
+The NumPy Library is for computing arrays and matrix math in Python. Pyplot is function of the Matplotlib library and is used for visualization. The initial parameters are set to initialize the Cantor Set and comments are provided as descriptions. The first horizontal bar is drawn from x_start to x_end at a given y_position, with bar height set to 5,  all segments with have same deminsion. The variable "spacing", set to 10, determines the vertical distance between successive levels of the Cantor Set, while the depth parameter, set to 6, specifies the number of recursive levels to be drawn, creating the characteristic fractal pattern. 
+        </p>	    
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+describe next code 
+        </p>	 	      
+
+<pre><code class="language-python">
+insert code here 2
+</code></pre>	      
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+discuss code section 2 
+</p>		
+	      
+<pre><code class="language-python">
 # Define a function to create the Cantor Set pattern
 def cantor_set(x_start, x_end, y_position, depth):
     if depth == 0:
@@ -109,42 +129,11 @@ for x_start, x_end, y in segments:
 # Hide the axes for a clean look
 plt.axis('off')
 plt.show()
-</code></pre>
+</code></pre>	 
 
-<pre><code class="language-python">
-insert code here 2
-</code></pre>	      
-	      
 <p style="text-indent: 40px; line-height: 1.6;">
-discuss code section 1 
-</p>		
-
-	      
-<pre><code class="language-python">
-# Initialize the turtle
-initializeTurtle(initial_window_size=(500, 500))
-
-# Set up the turtle's starting position and orientation
-jump(250, 450)  # Starting position at the bottom center of the canvas
-face(0)
-color('green')  # Set the pen color
-
-# Set the length and depth for the fractal tree
-length = 100  # Initial length of the main trunk
-depth = 7     # Recursion depth (number of branching levels)
-
-# Draw the fractal tree
-fractal_tree(length, depth)
-
-# Display the drawing
-show()
-</code></pre>	
-	      
-<p style="text-indent: 40px; line-height: 1.6;">
-The inclusion of backward allows multiple triangles to be nested within the outer triangles. The concept of order and recursion ensures that the smallest inner triangles are drawn at order zero. The table below compares the values of the variables order and length. Based on the table and the code, a triangle is only drawn when length reaches 25, which is the smallest calculated length.	
-</p>
-
-	      	    
+explain code  2
+</p>	       	    
 
 
 <p style="text-indent: 40px; line-height: 1.6;">
@@ -165,10 +154,10 @@ The image below illustrates how the tree has a left and a right to each stem, th
           </figcaption>
         </figure>
 
-    <h4>b. Control branching angles and lengths</h4>
+    <h4>b. Discuss "dust" fractals</h4>
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
-In the next function, the tree is built differently for controling branches and angles.  Unlike before where the base case of 0 quits the function before, now the comparison to greater than 3 is involved. The new function "build_tree" uses a variable for branch legth, the amount shorthen by, and angle. This function shows how easily the additional variables can give control over the function's branching angles and lengths. Here, passing the vaule of the angle will be able to adjust the braches location from the prior stem, the function uniquly doubles this amount to return and extend the angle in the other direction. This is still very simple code, with the length being shortened by a variable, the user controls the shape, but this code does get odd that it only has an if statement, never giving direction what to do in the base case, the code exits the if statement therefore exiting the function as the variable marks complete at 3.   This is more elaborate and can see overlap almost tricks the eye into a 3d feel of what the shape would do. 
+dust 
 </p>
 
 	    
@@ -179,7 +168,7 @@ We can change the lenth and agles with variables and visual inspect the differen
 </p>
         <figure>
           <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab5c.jpg"
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab5d.jpg"
 	
             alt="120 degrees"
             width="600"
@@ -191,10 +180,13 @@ We can change the lenth and agles with variables and visual inspect the differen
           </figcaption>
         </figure>	    
 
-
+<p style="text-indent: 40px; line-height: 1.6;">
+Additional dust fractals
+</p>
+	      
 <figure>
           <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab5c.jpg"
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab5e.jpg"
 	
             alt="120 degrees"
             width="600"
@@ -206,41 +198,8 @@ We can change the lenth and agles with variables and visual inspect the differen
           </figcaption>
 </figure>	    
 
-<p style="text-indent: 40px; line-height: 1.6;">
-Additionaly, in the efforts of showing control, to get control over the angle can allow for other uses that may seem inorganic. When changing the values to represent a 90 degree angle, the pattern shifts to right angles. As inorganic as this became, there were some other alternative 100 and 115 degress used, then the 180 degree trial outputted a straight line. 
-</p>
-<pre><code class="language-python">
-# Initialize the turtle
-initializeTurtle(initial_window_size=(1000, 1000))
 
-# Set up the turtle's starting position and orientation
-jump(500, 900)  # Starting position at the bottom center of the canvas
-face(0)
-color('green')  # Set the pen color
 
-# Draw the fractal tree
-build_tree(100, 8, 90)
-
-# Display the drawing
-show()
-</code></pre>
-<p style="text-indent: 40px; line-height: 1.6;">
-Showing control over the angles, changing to a 90 degree angle tree starts to imagine what else the code could be used for. Industrial applications for reinforment, areas where 90 degrees are not found in nature, like a roads or buildings.
-</p>
-
-<figure>
-          <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab5e.jpg"
-	
-            alt="120 degrees"
-            width="600"
-            height="400"
-            loading="lazy"
-          />
-          <figcaption>
-            <strong></strong> A tree with 90 degree angles variables. 
-          </figcaption>
-</figure>	
 	    
 	    <!-- CONCLUSION SECTION -->
       <!-- -------------------------------------------------------------------------------------------- -->
