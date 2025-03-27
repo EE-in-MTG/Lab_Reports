@@ -21,6 +21,7 @@ Lab 5: https://ee-in-mtg.github.io/Lab_Reports/Lab5.html
    Colab: https://colab.research.google.com/drive/1CaLz9wkN0lAB2B1qR0bcUgbVBmzVC2xr
    
 Lab 6: https://ee-in-mtg.github.io/Lab_Reports/Lab6.html 
+
    Colab: https://colab.research.google.com/drive/1jKjKdcCfLXbA0pai2-zJo5SC3ayvNjUi
 
 # Notes
