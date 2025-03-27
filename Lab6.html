@@ -93,6 +93,7 @@ def generate_grid(size):
 <p style="text-indent: 40px; line-height: 1.6;">
 Next the plotting is used to display the grid, blus points represent the grid in Cartesian space before any transformations are applied. Change to the size parameter from 50 to 10, made a ten by ten grid, where changing to 1000 made the grid appear solid blue. The sample rate of the data can be adjusted in the same way when recording audio, electrical data or other scientific measurements. This sample rate in audio in linear in time, where the larger the sample rate, the more accuracte the reproduction from the digital domain back to analong can represent the original signal without artifacts or distortion. 
         </p>	    
+	      
         <figure>
           <img 
 		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06a.jpg"
@@ -103,60 +104,84 @@ Next the plotting is used to display the grid, blus points represent the grid in
             loading="lazy"
           />
           <figcaption>
-            <strong></strong> The Cantor Set
+            <strong></strong> The unaltered 50 by 50 grid
           </figcaption>
         </figure>
 
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
-The next code define the function "cantor_set" to taker in four variables x_start, x_end, y_position, and depth. First, the functions checks for a base case condition, in this case if the variable depth is equal to zero, the function stops and returns an empty list. With recursian there is a built in base case to prevent processor and momory issues becasue the function continues without an ending either. The issue is computing resources, if there was an need to create a source of purpetual computing, the function would need to release or reuse memmory. In embedded systems, direct memory access is used more often based on limited resources, defining a base memory address is common in embedded systems, such as running Linux on an SD card when programming cross platform.  So having direct access to memory addresses and logical bit manipulations can have direct memory access without processor intervention. This bare metal programming may have never been used to create a fractal that can run without end. 
+The next code applies iterative transformation where the grid points are mapped with complex plane. Here a new variable is sent to the function for iterations, a condition of a for loop where the transformation is  asquare and then subtracting one half. The function returns both real and imaginary values. With the interations set to one, the grib begins to distortas shown below.  As a non linear structure the slop is not constant, this is visually exposed in the plot. 
  
  </p>	 
-<p style="text-indent: 40px; line-height: 1.6;">
-This code calls on itself untill the base condition is met. Below, the line segment is divided into three equal parts. The left segment will be the first third of the line and the right segment will be the last third of the line. This is done by dividing by three and positioning the calulation in the middle variable for the left segment and the first variable for the right segment. 
+
+<pre><code class="language-python">
+def iterative_transform(grid, iterations):
+    x_grid, y_grid = grid
+    z = x_grid + 1j * y_grid  # Create a complex plane
+    for i in range(iterations):
+        z = z ** 2 - 0.5  # Iteratively apply the transformation
+    return np.real(z), np.imag(z)
+
+# Set the number of iterations
+iterations = 1
+
+# Apply the iterative transformation
+fractal_grid = iterative_transform(grid, iterations)
+
+# Plot the fractal grid
+plot_grid(fractal_grid)
+</code></pre>
 
 
+        <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06b.jpg"
 	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> The nonlineasr transformation of grid with 1 iterations
+          </figcaption>
+        </figure>
+
+	      
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+When making changes to this function variable, it should be notes that this function runs from the grid created previously and changes there can be reset, back to 50, to intrepret current transformation more clearly. after resetting the plot and changing iteration to iterations = 2, the increase of iteration causes more depth in transformation. The shpaes begin to show signs from the squaring of the complex number, this begins fractal behavior.	
 </p>		
 
 <pre><code class="language-python">
-# Define a function to create the Cantor Set pattern
-def cantor_set(x_start, x_end, y_position, depth):
-    if depth == 0:
-        return []
-
-    # Left and right segments for the current bar
-    left_segment = [[x_start, x_start + (x_end - x_start) / 3, y_position]]
-    right_segment = [[x_end - (x_end - x_start) / 3, x_end, y_position]]
-
-    # Recursively generate segments for the next levels
-    left_recursive = cantor_set(x_start, x_start + (x_end - x_start) / 3, y_position - spacing, depth - 1)
-    right_recursive = cantor_set(x_end - (x_end - x_start) / 3, x_end, y_position - spacing, depth - 1)
-
-    # Combine the current segments with the results from recursive calls
-    return left_segment + right_segment + left_recursive + right_recursive
-
-</code></pre>	      
+# Set the number of iterations
+iterations = 2
+</code></pre>
+	              <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06b2.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> The nonlineasr transformation of grid with 3 iterations
+          </figcaption>
+        </figure>
+	      
+	      
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
-The remaining code creates the array "Segments" and calls the recursive function and then converts the list of segments into a NumPy array for plotting. The bars are drawn and fill used from the plot library 
+The remaining code adjustments still show signs of visually appealing mathimatical curves where you could almost connect the dots to follow shapes.  
 </p>		
 	      
 <pre><code class="language-python">
 
 # Generate Cantor Set segments data
-segments = np.array(cantor_set(x_start, x_end, y_position, depth))  # Convert to an array for easy plotting
-
-# Plot the Cantor Set
-plt.figure(figsize=(25, 25))
-
-# Draw each segment as a black bar
-for x_start, x_end, y in segments:
-    plt.fill_between([x_start, x_end], [y] * 2, [y - bar_height] * 2, color="black")
-
-# Hide the axes for a clean look
-plt.axis('off')
-plt.show()
+# Set the number of iterations
+iterations = 3
 </code></pre>	 
 
 <p style="text-indent: 40px; line-height: 1.6;">
@@ -166,7 +191,7 @@ The Cantor Set is generated recursively by removing the middle third of each seg
 
         <figure>
           <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab5c.jpg"
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06c.jpg"
 	
             alt="120 degrees"
             width="600"
@@ -181,81 +206,9 @@ The Cantor Set is generated recursively by removing the middle third of each seg
     <h4>b. Discuss "dust" fractals</h4>
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
-A dust fractal is a category that uses an iterative removal process and is not continuous. Our example above, the Canter Set repeated dividing a shape dimension start and stop points. 
-The structure of the fractal can be fragmented while still following a recursive pattern.
+
  
 </p>
-
- <h5>c. Create fractal variations</h5>	    
-
-	      
-<p style="text-indent: 40px; line-height: 1.6;">
-We can change the variables and visually inspect the differences below. Our first example changes the divsion and inspects the visually change, dividing by 3 instead of 5. 
-</p>
-	      
-<pre><code class="language-python">
-    # Recursively generate segments for the next levels
-    left_recursive = cantor_set(x_start, x_start + (x_end - x_start) / 5, y_position - spacing, depth - 1)
-    right_recursive = cantor_set(x_end - (x_end - x_start) / 5, x_end, y_position - spacing, depth - 1)
-</code></pre>
-	      
-        <figure>
-          <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab5d.jpg"
-	
-            alt="120 degrees"
-            width="600"
-            height="400"
-            loading="lazy"
-          />
-          <figcaption>
-            <strong></strong> Pattern is the same only the length of new segments is 1/5 inseat of 1/3
-          </figcaption>
-        </figure>	    
-
-<p style="text-indent: 40px; line-height: 1.6;">
-Another example for creating a variation, instead of removing just one middle third, remove multiple segments to create a different fractal pattern.
-</p>
-
-<pre><code class="language-python">
-	      def cantor_four_segment(x_start, x_end, y_position, depth):
-    if depth == 0:
-          return []
-
-    # Divide the segment into five equal parts, removing the second and fourth parts
-    segment_length = (x_end - x_start) / 5
-    segments = [
-        [x_start, x_start + segment_length, y_position],
-        [x_start + 2 * segment_length, x_start + 3 * segment_length, y_position],
-        [x_start + 4 * segment_length, x_end, y_position]
-    ]
-
-    # Recursively generate the next level
-    recursive_segments = []
-    for seg in segments:
-        recursive_segments += cantor_four_segment(seg[0], seg[1], y_position - spacing, depth - 1)
-
-    return segments + recursive_segments
-</code></pre>
-	      
-<p style="text-indent: 40px; line-height: 1.6;">
-In this new fractal fractal pattern, the 4th, 5th and 6th lines are visually simillar. Definatly not a could choice for an eye doctor exam. Shows that an evauation would be usefull to incorporate print statements of variable if calculations were the goal. 
-</p>	      
-	      
-<figure>
-          <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab5e.jpg"
-	
-            alt="120 degrees"
-            width="600"
-            height="400"
-            loading="lazy"
-          />
-          <figcaption>
-            <strong></strong> A fractal created with three blocks   
-          </figcaption>
-</figure>	    
-
 
 
 	    
