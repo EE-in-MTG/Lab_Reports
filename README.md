@@ -5,7 +5,7 @@ Reports for Fractal Geometry
 
 Report: https://ee-in-mtg.github.io/Lab_Reports/
 
-Lab 1: https://ee-in-mtg.github.io/Lab_Reports/Lab1.html
+Lab 1: https://ee-in-mtg.github.io/Lab_Reports/Lab1.html        
    Colab:  https://colab.research.google.com/drive/1p0VTVg2z81scJ0dgNYfly4IC747uu7gm
 
 Lab 2: https://ee-in-mtg.github.io/Lab_Reports/Lab2.html   
