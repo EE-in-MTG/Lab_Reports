@@ -1,0 +1,263 @@
+<!-- INTRODUCTION SECTION -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------- --> 
+<!-- -------------------------------------------------------------------------------------------- -->
+<html>
+<head> <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="stylesheet" href="https://latex.vercel.app/style.css" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css"/><script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+
+<title>Fractal Geometry Lab Report 6</title>
+
+</head>
+	
+<body id="top">
+
+
+
+
+  <header>
+    <h1>Fractal Geometry Lab Report 6</h1>
+    <h1>Enter the MAtrix</h1>
+	  
+    <p class="author">
+      Joseph D Wilson <br />
+      03/26/2025
+    </p>
+  </header>
+  
+
+
+  <main>
+    <article class="indent-pars">
+      
+      <!-- INTRODUCTION SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="introduction">
+        <h2>Introduction</h2>
+        <p>
+This lab is to build and analyze the Cantor Set and to discuss “dust” fractals. Using the provided Python code, the goals are to document all the elements of the code, explaining their roles and functionality. Additionally, an extension to the code will visualize the fractal variations.
+
+The Cantor Set fractal is constructed by repeatedly removing the middle third of a line segment, resulting in a self-similar structure. This lab demonstrates a recursive function, generating and plotting the Cantor Set using the Matplotlib library.
+
+          
+        </p>
+      </section>
+
+
+     
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+     
+<h3>a. Build and Analyze the Canter set.</h3>
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+The elements of this code begin with importing the libraries and setting up the initial parameters. 
+        </p>
+
+<pre><code class="language-python">
+# Import libraries for math and plotting
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Set initial parameters
+x_start = 0       # Starting x-coordinate of the first bar
+x_end = 3         # Ending x-coordinate of the first bar
+y_position = 0    # Starting y-coordinate (height of the first bar)
+bar_height = 5    # Height of each bar
+spacing = 10      # Space between bars (distance downwards)
+depth = 6         # Number of levels to draw
+
+</code></pre>
+
+<p style="text-indent: 40px; line-height: 1.6;">
+The NumPy Library is for computing arrays and matrix math in Python. Pyplot is function of the Matplotlib library and is used for visualization. The initial parameters are set to initialize the Cantor Set and comments are provided as descriptions. The first horizontal bar is drawn from x_start to x_end at a given y_position, with bar height set to 5,  all segments with have same deminsion. The variable "spacing", set to 10, determines the vertical distance between iterations of the Cantor Set. The variable  "depth parameter" is set to 6 and will control number of fractal. 
+        </p>	    
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+The next code define the function "cantor_set" to taker in four variables x_start, x_end, y_position, and depth. First, the functions checks for a base case condition, in this case if the variable depth is equal to zero, the function stops and returns an empty list. With recursian there is a built in base case to prevent processor and momory issues becasue the function continues without an ending either. The issue is computing resources, if there was an need to create a source of purpetual computing, the function would need to release or reuse memmory. In embedded systems, direct memory access is used more often based on limited resources, defining a base memory address is common in embedded systems, such as running Linux on an SD card when programming cross platform.  So having direct access to memory addresses and logical bit manipulations can have direct memory access without processor intervention. This bare metal programming may have never been used to create a fractal that can run without end. 
+ 
+ </p>	 
+<p style="text-indent: 40px; line-height: 1.6;">
+This code calls on itself untill the base condition is met. Below, the line segment is divided into three equal parts. The left segment will be the first third of the line and the right segment will be the last third of the line. This is done by dividing by three and positioning the calulation in the middle variable for the left segment and the first variable for the right segment. 
+
+
+	
+</p>		
+
+<pre><code class="language-python">
+# Define a function to create the Cantor Set pattern
+def cantor_set(x_start, x_end, y_position, depth):
+    if depth == 0:
+        return []
+
+    # Left and right segments for the current bar
+    left_segment = [[x_start, x_start + (x_end - x_start) / 3, y_position]]
+    right_segment = [[x_end - (x_end - x_start) / 3, x_end, y_position]]
+
+    # Recursively generate segments for the next levels
+    left_recursive = cantor_set(x_start, x_start + (x_end - x_start) / 3, y_position - spacing, depth - 1)
+    right_recursive = cantor_set(x_end - (x_end - x_start) / 3, x_end, y_position - spacing, depth - 1)
+
+    # Combine the current segments with the results from recursive calls
+    return left_segment + right_segment + left_recursive + right_recursive
+
+</code></pre>	      
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+The remaining code creates the array "Segments" and calls the recursive function and then converts the list of segments into a NumPy array for plotting. The bars are drawn and fill used from the plot library 
+</p>		
+	      
+<pre><code class="language-python">
+
+# Generate Cantor Set segments data
+segments = np.array(cantor_set(x_start, x_end, y_position, depth))  # Convert to an array for easy plotting
+
+# Plot the Cantor Set
+plt.figure(figsize=(25, 25))
+
+# Draw each segment as a black bar
+for x_start, x_end, y in segments:
+    plt.fill_between([x_start, x_end], [y] * 2, [y - bar_height] * 2, color="black")
+
+# Hide the axes for a clean look
+plt.axis('off')
+plt.show()
+</code></pre>	 
+
+<p style="text-indent: 40px; line-height: 1.6;">
+The Cantor Set is generated recursively by removing the middle third of each segment. Below is the output generated by the function iteration. 
+</p>	       	    
+
+
+        <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab5c.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> The Cantor Set
+          </figcaption>
+        </figure>
+
+    <h4>b. Discuss "dust" fractals</h4>
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+A dust fractal is a category that uses an iterative removal process and is not continuous. Our example above, the Canter Set repeated dividing a shape dimension start and stop points. 
+The structure of the fractal can be fragmented while still following a recursive pattern.
+ 
+</p>
+
+ <h5>c. Create fractal variations</h5>	    
+
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+We can change the variables and visually inspect the differences below. Our first example changes the divsion and inspects the visually change, dividing by 3 instead of 5. 
+</p>
+	      
+<pre><code class="language-python">
+    # Recursively generate segments for the next levels
+    left_recursive = cantor_set(x_start, x_start + (x_end - x_start) / 5, y_position - spacing, depth - 1)
+    right_recursive = cantor_set(x_end - (x_end - x_start) / 5, x_end, y_position - spacing, depth - 1)
+</code></pre>
+	      
+        <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab5d.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> Pattern is the same only the length of new segments is 1/5 inseat of 1/3
+          </figcaption>
+        </figure>	    
+
+<p style="text-indent: 40px; line-height: 1.6;">
+Another example for creating a variation, instead of removing just one middle third, remove multiple segments to create a different fractal pattern.
+</p>
+
+<pre><code class="language-python">
+	      def cantor_four_segment(x_start, x_end, y_position, depth):
+    if depth == 0:
+          return []
+
+    # Divide the segment into five equal parts, removing the second and fourth parts
+    segment_length = (x_end - x_start) / 5
+    segments = [
+        [x_start, x_start + segment_length, y_position],
+        [x_start + 2 * segment_length, x_start + 3 * segment_length, y_position],
+        [x_start + 4 * segment_length, x_end, y_position]
+    ]
+
+    # Recursively generate the next level
+    recursive_segments = []
+    for seg in segments:
+        recursive_segments += cantor_four_segment(seg[0], seg[1], y_position - spacing, depth - 1)
+
+    return segments + recursive_segments
+</code></pre>
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+In this new fractal fractal pattern, the 4th, 5th and 6th lines are visually simillar. Definatly not a could choice for an eye doctor exam. Shows that an evauation would be usefull to incorporate print statements of variable if calculations were the goal. 
+</p>	      
+	      
+<figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab5e.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> A fractal created with three blocks   
+          </figcaption>
+</figure>	    
+
+
+
+	    
+	    <!-- CONCLUSION SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="conclusion">
+        <h6>Conclusion</h6>
+        <p>
+In this lab, we explored the Cantor Set, an example of a dust fractal because the shapes are discontinuous. A recursive function in Python uses an array and division for altering shape length and plots the fractal using Matplotlib. The iterative removal of the middle third of each segment results in a fragmented, self-similar structure. This process's key concept for fractal geometry is subdivision used for dimensionality reduction.
+
+Through this experiment, we gained a deeper understanding of recursion as a problem-solving approach, demonstrating how complex structures can be generated through simple, repetitive rules. Additionally, by adjusting parameters such as recursion depth, spacing, and segment dimensions, we examined how different factors influence the final fractal shape.
+
+Alterations to the functions can provide outcome changes in both the shape and amount of mathematical fractals, recursion, and visually plotted outcomes. The Cantor Set, despite its simplicity, exemplifies the fascinating complexity that emerges from iterative rules, reinforcing the fundamental principles of fractal geometry and computer iteration.
+
+        </p>
+      </section>
+
+  </main>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>
