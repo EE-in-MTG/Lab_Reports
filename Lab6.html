@@ -260,9 +260,17 @@ By changing the transformation, additional visualization can give patterns to co
             loading="lazy"
           />
           <figcaption>
-            <strong></strong> The alternative transformation 1
+            <strong></strong> The alternative transformation cubed
           </figcaption>
         </figure>
+
+<p style="text-indent: 40px; line-height: 1.6;">
+Additional transformation can reveal new patterns using sin in place of imaginary i. 
+</p>
+	      
+<pre><code class="language-python">
+        z = np.sin(z) + 1j * np.cos(z)   # Iteratively apply the transformation
+</code></pre>
 	      
         <figure>
           <img 
@@ -277,7 +285,32 @@ By changing the transformation, additional visualization can give patterns to co
             <strong></strong> The alternative transformation 2
           </figcaption>
         </figure>
+
+	      <pre><code class="language-python">
+def iterative_transform(grid, iterations):
+    x_grid, y_grid = grid
+    z = x_grid + 1j * y_grid  # Create a complex plane
+    for i in range(iterations):
+        z = np.sin(z) + 1j * np.cos(z)   # Iteratively apply the transformation
+    return np.real(z), np.imag(z)
+
+# Set the number of iterations
+iterations = 2
+</code></pre>
 	      
+        <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06h.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> The alternative transformation with iteration 2 
+          </figcaption>
+        </figure>
 
 
 	    
