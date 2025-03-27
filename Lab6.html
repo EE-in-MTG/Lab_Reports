@@ -62,30 +62,51 @@ This lab explores the use of Python, NumPy, and Matplotlib to apply iterative tr
       
       
      
-<h3>a. Apply Iterative Transformations on a 2D grid and MAnipulate the complex plane with Python and NumPy</h3>
+<h3>a. Code 1: Creating and Plotting the Initial Grid</h3>
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
-The elements of this code begin with importing the libraries and setting up the initial parameters. 
+ This Pythonic convention for using np when impoting the Numpy libray creates a variable where the inheritance of the class can call functions in dot notation such s np.functionname. NumPy stands for Numerical Python and is a library for working with arrays and matrices, mathimatical operations. As an engineer in training (EIT) can I use NumPy and it be certified by a Professional Engineer? NumPy is not IEEE certified, it is developed and maintained by the open source scientific communioty. NumPy follows well-established numerical computing practices and its core algorithms often match or exceed IEEE 754 standards for floating-point arithmetic. In addition to NumPy, matplotlib function pyplot is imported as the variable plt. Another very common Pythonic code, this enables the visualization of computing for data analysis.  
         </p>
+	      
 
 <pre><code class="language-python">
-# Import libraries for math and plotting
 import numpy as np
 import matplotlib.pyplot as plt
-
-# Set initial parameters
-x_start = 0       # Starting x-coordinate of the first bar
-x_end = 3         # Ending x-coordinate of the first bar
-y_position = 0    # Starting y-coordinate (height of the first bar)
-bar_height = 5    # Height of each bar
-spacing = 10      # Space between bars (distance downwards)
-depth = 6         # Number of levels to draw
-
 </code></pre>
 
+	      <p style="text-indent: 40px; line-height: 1.6;">
+ Next, the function is defined generate_grid. This function creates a 2D grid evenly spaced between 1 and -1 using NumPy. The function returns the variable grid, a matrices of x and y , based on the variable size which is the argument sent when the function is called. 
+		          </p>
+
 <p style="text-indent: 40px; line-height: 1.6;">
-The NumPy Library is for computing arrays and matrix math in Python. Pyplot is function of the Matplotlib library and is used for visualization. The initial parameters are set to initialize the Cantor Set and comments are provided as descriptions. The first horizontal bar is drawn from x_start to x_end at a given y_position, with bar height set to 5,  all segments with have same deminsion. The variable "spacing", set to 10, determines the vertical distance between iterations of the Cantor Set. The variable  "depth parameter" is set to 6 and will control number of fractal. 
+ This function creates a 2D grid of evenly spaced points between -1 and 1 using NumPy. np.meshgrid returns matrices for X and Y coordinates, forming the base for our transformation.
+        </p>	      
+<pre><code class="language-python">
+def generate_grid(size):
+    x = np.linspace(-1, 1, size)
+    y = np.linspace(-1, 1, size)
+    grid = np.meshgrid(x, y)
+    return grid
+</code></pre>
+
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+Next the plotting is used to display the grid, 
         </p>	    
+        <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06a.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> The Cantor Set
+          </figcaption>
+        </figure>
+
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
 The next code define the function "cantor_set" to taker in four variables x_start, x_end, y_position, and depth. First, the functions checks for a base case condition, in this case if the variable depth is equal to zero, the function stops and returns an empty list. With recursian there is a built in base case to prevent processor and momory issues becasue the function continues without an ending either. The issue is computing resources, if there was an need to create a source of purpetual computing, the function would need to release or reuse memmory. In embedded systems, direct memory access is used more often based on limited resources, defining a base memory address is common in embedded systems, such as running Linux on an SD card when programming cross platform.  So having direct access to memory addresses and logical bit manipulations can have direct memory access without processor intervention. This bare metal programming may have never been used to create a fractal that can run without end. 
