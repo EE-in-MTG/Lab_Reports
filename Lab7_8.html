@@ -1,0 +1,336 @@
+<!-- INTRODUCTION SECTION -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------- --> 
+<!-- -------------------------------------------------------------------------------------------- -->
+<html>
+<head> <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="stylesheet" href="https://latex.vercel.app/style.css" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css"/><script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+
+<title>Fractal Geometry Lab Report 7/8</title>
+
+</head>
+	
+<body id="top">
+
+
+
+
+  <header>
+    <h1>Fractal Geometry Lab Report 7 and 8</h1>
+    <h1>Enter the Matrix</h1>
+	  
+    <p class="author">
+      Joseph D Wilson <br />
+      03/26/2025
+    </p>
+  </header>
+  
+
+
+  <main>
+    <article class="indent-pars">
+      
+      <!-- INTRODUCTION SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="introduction">
+        <h2>Introduction</h2>
+        <p>
+Generate and zoom into the Mandlebrot set. Learn optimazation with NumPy and Numba. 
+          
+        </p>
+      </section>
+
+
+     
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+     
+<h3>Creating the complex plane in NumPy and Plotting the Initial Grid</h3>
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+The Pythonic convention of importing the NumPy library using import numpy as np creates a shorthand variable (np) that allows access to NumPy functions using dot notation, such as np.function_name. NumPy stands for Numerical Python and is a powerful library for working with arrays, matrices, and performing mathematical operations.
+
+As an Engineer-in-Training (EIT), you can absolutely use NumPy in your work. However, it’s important to note that while NumPy itself is not IEEE certified, it is developed and maintained by a respected open-source scientific community. NumPy adheres to well-established numerical computing practices, and its core algorithms often conform to or exceed IEEE 754 standards for floating-point arithmetic.
+
+In addition to NumPy, another commonly used Pythonic convention is importing the pyplot module from the matplotlib library as plt. This allows for efficient and flexible data visualization, which is especially useful in data analysis and engineering simulations. 
+        </p>
+	      
+
+<pre><code class="language-python">
+import numpy as np
+import matplotlib.pyplot as plt
+</code></pre>
+
+	      <p style="text-indent: 40px; line-height: 1.6;">
+ Next, the function is defined generate_grid. This function creates a 2D grid evenly spaced between 1 and -1 using NumPy. The function returns the variable grid, a matrices of x and y , based on the variable size which is the argument sent when the function is called. 
+		          </p>
+
+<p style="text-indent: 40px; line-height: 1.6;">
+ This function creates a 2D grid of evenly spaced points between -1 and 1 using NumPy. np.meshgrid returns matrices for X and Y coordinates, forming the base for our transformation.
+        </p>	      
+<pre><code class="language-python">
+def generate_grid(size):
+    x = np.linspace(-1, 1, size)
+    y = np.linspace(-1, 1, size)
+    grid = np.meshgrid(x, y)
+    return grid
+</code></pre>
+
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+Next the plotting is used to display the grid, blus points represent the grid in Cartesian space before any transformations are applied. Change to the size parameter from 50 to 10, made a ten by ten grid, where changing to 1000 made the grid appear solid blue. The sample rate of the data can be adjusted in the same way when recording audio, electrical data or other scientific measurements. This sample rate in audio in linear in time, where the larger the sample rate, the more accuracte the reproduction from the digital domain back to analong can represent the original signal without artifacts or distortion. 
+        </p>	    
+	      
+        <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06a.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> The unaltered 50 by 50 grid
+          </figcaption>
+        </figure>
+
+<h3>Iterative Transformation on a 2D grid</h3>
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+The next code applies iterative transformation where the grid points are mapped with complex plane. Here a new variable is sent to the function for iterations, a condition of a for loop where the transformation is  asquare and then subtracting one half. The function returns both real and imaginary values. With the interations set to one, the grib begins to distortas shown below.  As a non linear structure the slop is not constant, this is visually exposed in the plot. 
+ 
+ </p>	 
+
+<pre><code class="language-python">
+def iterative_transform(grid, iterations):
+    x_grid, y_grid = grid
+    z = x_grid + 1j * y_grid  # Create a complex plane
+    for i in range(iterations):
+        z = z ** 2 - 0.5  # Iteratively apply the transformation
+    return np.real(z), np.imag(z)
+
+# Set the number of iterations
+iterations = 1
+
+# Apply the iterative transformation
+fractal_grid = iterative_transform(grid, iterations)
+
+# Plot the fractal grid
+plot_grid(fractal_grid)
+</code></pre>
+
+
+        <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06b.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> The nonlineasr transformation of grid with 1 iterations
+          </figcaption>
+        </figure>
+
+	      
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+When making changes to this function variable, it should be notes that this function runs from the grid created previously and changes there can be reset, back to 50, to intrepret current transformation more clearly. after resetting the plot and changing iteration to iterations = 2, the increase of iteration causes more depth in transformation. The shpaes begin to show signs from the squaring of the complex number, this begins fractal behavior.	
+</p>		
+
+<pre><code class="language-python">
+# Set the number of iterations
+iterations = 2
+</code></pre>
+	              <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06b2.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> The nonlineasr transformation of grid with 2 iterations
+          </figcaption>
+        </figure>
+	      
+	      
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+The remaining code adjustments still show signs of visually appealing mathimatical curves where you could almost connect the dots to follow shapes.  
+</p>		
+	      
+<pre><code class="language-python">
+# Set the number of iterations
+iterations = 3
+
+# Apply the iterative transformation
+fractal_grid = iterative_transform(grid, iterations)
+
+# Plot the fractal grid
+plot_grid(fractal_grid)
+</code></pre>	 
+
+        	    
+
+
+        <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06c.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> The transformation with iteration as 3
+          </figcaption>
+        </figure>
+
+<h3>Changes in Grid Size</h3>
+	      
+<p style="text-indent: 40px; line-height: 1.6;">
+By changing the grid from 50 to 100, the trasnformations allow us to interpret the samples on a higher depth rate. Notice to the overlap in the iteration = 2 plot reveals a new patter that gives a a great pattern below  
+ 
+</p>
+        <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06d.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> The 100 by 100 grid 
+          </figcaption>
+        </figure>
+	      
+        <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06e.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> The 100 by 100 grid transformation with iteration as 2
+          </figcaption>
+        </figure>
+
+
+<h3>Experiment with different transformations</h3>
+<p style="text-indent: 40px; line-height: 1.6;">
+By changing the transformation, additional visualization can give patterns to complex math functions. 
+</p>
+	      
+<pre><code class="language-python">
+       z = z ** 3 - 0.5  # Iteratively apply the transformation
+</code></pre>
+	      
+       <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06f.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> The alternative transformation cubed
+          </figcaption>
+        </figure>
+
+<p style="text-indent: 40px; line-height: 1.6;">
+Additional transformation can reveal new patterns using sin in place of imaginary i. 
+</p>
+	      
+<pre><code class="language-python">
+        z = np.sin(z) + 1j * np.cos(z)   # Iteratively apply the transformation
+</code></pre>
+	      
+        <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06g.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> The alternative transformation 2
+          </figcaption>
+        </figure>
+
+	      <pre><code class="language-python">
+def iterative_transform(grid, iterations):
+    x_grid, y_grid = grid
+    z = x_grid + 1j * y_grid  # Create a complex plane
+    for i in range(iterations):
+        z = np.sin(z) + 1j * np.cos(z)   # Iteratively apply the transformation
+    return np.real(z), np.imag(z)
+
+# Set the number of iterations
+iterations = 2
+</code></pre>
+	      
+        <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06h.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> The alternative transformation with iteration 2 
+          </figcaption>
+        </figure>
+
+
+	    
+	    <!-- CONCLUSION SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="conclusion">
+        <h6>Conclusion</h6>
+        <p>
+In this lab, a simple 2D grid is transformed into visual patterns using complex number arithmetic and iterative functions. The applied transformation involves squaring a complex number and subtracting half of its real part—a process that leads to fractal formation when repeated. NumPy performs computations in the complex plane, while Matplotlib visualizes the results. Alterations to the grid size and transformation rules can change the visual output, enabling the generation of an unlimited variety of complex patterns. By combining basic programming with abstract mathematical concepts, we are able to analyze phenomena that were previously difficult to represent or understand. Here iteration was kept low, in some of the higher iterations tried, the plot lost large amount points, this may need to be evualated in a 3D environment for a better understanding. 
+
+        </p>
+      </section>
+
+  </main>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>
