@@ -224,7 +224,8 @@ plt.show()
 
  <h3>2. Julia Set Code Walkthrough</h3>
 <p style="text-indent: 40px; line-height: 1.6;">
-Our third function julia_set(c, ...) generates the Julia set for a fixed complex constant c. The julia set process is similar to Mandelbrot, but each point starts with z = pixel_value and applies z = z² + c with constant c. The key difference is the constant c is fixed for Julia, while it's the pixel value in Mandelbrot. Different constants c drastically alter the shape of the Julia set.
+Our third function julia_set(c, ...) generates the Julia set for a fixed complex constant c. The julia set process is similar to Mandelbrot, but each point starts with z = pixel_value and applies z = z² + c with constant c. Unlike the Mandelbrot Set where z starts at 0 and c varies,  the constant c is fixed for Julia and z varies across each pixel in the complex plane.  Different constants c alter the shape of the Julia set.
+
 </p>	  
 	    
 <pre><code class="language-python">
