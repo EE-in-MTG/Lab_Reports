@@ -172,10 +172,6 @@ In engineering, complex numbers are commonly expressed as a + bi, where b corres
   </tbody>
 </table>
 
-
-
-	    
-
 	    
 <p style="text-indent: 40px; line-height: 1.6;">
 Next, the variables, or arguments, are set. 
@@ -223,9 +219,11 @@ plt.show()
 
 
  <h3>2. Julia Set Code Walkthrough</h3>
+
+
+	    
 <p style="text-indent: 40px; line-height: 1.6;">
 Our third function julia_set(c, ...) generates the Julia set for a fixed complex constant c. The julia set process is similar to Mandelbrot, but each point starts with z = pixel_value and applies z = z² + c with constant c. Unlike the Mandelbrot Set where z starts at 0 and c varies,  the constant c is fixed for Julia and z varies across each pixel in the complex plane.  Different constants c alter the shape of the Julia set.
-
 </p>	  
 	    
 <pre><code class="language-python">
@@ -267,33 +265,12 @@ def julia_set(c, xmin, xmax, ymin, ymax, width, height, max_iter):
         </figure>
 
 <h3>Julia Set </h3>
-	      
-<p style="text-indent: 40px; line-height: 1.6;">
-The next code applies iterative transformation where the grid points are mapped with complex plane. Here a new variable is sent to the function for iterations, a condition of a for loop where the transformation is  asquare and then subtracting one half. The function returns both real and imaginary values. With the interations set to one, the grib begins to distortas shown below.  As a non linear structure the slop is not constant, this is visually exposed in the plot. 
- </p>	 
 
-<pre><code class="language-python">
-def iterative_transform(grid, iterations):
-    x_grid, y_grid = grid
-    z = x_grid + 1j * y_grid  # Create a complex plane
-    for i in range(iterations):
-        z = z ** 2 - 0.5  # Iteratively apply the transformation
-    return np.real(z), np.imag(z)
-
-# Set the number of iterations
-iterations = 1
-
-# Apply the iterative transformation
-fractal_grid = iterative_transform(grid, iterations)
-
-# Plot the fractal grid
-plot_grid(fractal_grid)
-</code></pre>
 
 
         <figure>
           <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06b.jpg"
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab78c.jpg"
 	
             alt="120 degrees"
             width="600"
@@ -301,23 +278,13 @@ plot_grid(fractal_grid)
             loading="lazy"
           />
           <figcaption>
-            <strong></strong> The nonlineasr transformation of grid with 1 iterations
+            <strong></strong> alterations to the Madelbrot 1
           </figcaption>
         </figure>
 
-	      
-	      
-<p style="text-indent: 40px; line-height: 1.6;">
-When making changes to this function variable, it should be notes that this function runs from the grid created previously and changes there can be reset, back to 50, to intrepret current transformation more clearly. after resetting the plot and changing iteration to iterations = 2, the increase of iteration causes more depth in transformation. The shpaes begin to show signs from the squaring of the complex number, this begins fractal behavior.	
-</p>		
-
-<pre><code class="language-python">
-# Set the number of iterations
-iterations = 2
-</code></pre>
-	              <figure>
+		            <figure>
           <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06b2.jpg"
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab78d.jpg"
 	
             alt="120 degrees"
             width="600"
@@ -325,67 +292,14 @@ iterations = 2
             loading="lazy"
           />
           <figcaption>
-            <strong></strong> The nonlineasr transformation of grid with 2 iterations
+            <strong></strong> alterations to the Madelbrot 2
           </figcaption>
         </figure>
 	      
-	      
-	      
-<p style="text-indent: 40px; line-height: 1.6;">
-The remaining code adjustments still show signs of visually appealing mathimatical curves where you could almost connect the dots to follow shapes.  
-</p>		
-	      
-<pre><code class="language-python">
-# Set the number of iterations
-iterations = 3
-
-# Apply the iterative transformation
-fractal_grid = iterative_transform(grid, iterations)
-
-# Plot the fractal grid
-plot_grid(fractal_grid)
-</code></pre>	 
-
-        	    
-
-
-        <figure>
-          <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06c.jpg"
-	
-            alt="120 degrees"
-            width="600"
-            height="400"
-            loading="lazy"
-          />
-          <figcaption>
-            <strong></strong> The transformation with iteration as 3
-          </figcaption>
-        </figure>
-
-<h3>Changes in Grid Size</h3>
-	      
-<p style="text-indent: 40px; line-height: 1.6;">
-By changing the grid from 50 to 100, the trasnformations allow us to interpret the samples on a higher depth rate. Notice to the overlap in the iteration = 2 plot reveals a new patter that gives a a great pattern below  
- 
-</p>
-        <figure>
-          <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06d.jpg"
-	
-            alt="120 degrees"
-            width="600"
-            height="400"
-            loading="lazy"
-          />
-          <figcaption>
-            <strong></strong> The 100 by 100 grid 
-          </figcaption>
-        </figure>
 	      
         <figure>
           <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06e.jpg"
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab78e.jpg"
 	
             alt="120 degrees"
             width="600"
@@ -393,45 +307,13 @@ By changing the grid from 50 to 100, the trasnformations allow us to interpret t
             loading="lazy"
           />
           <figcaption>
-            <strong></strong> The 100 by 100 grid transformation with iteration as 2
+            <strong></strong> Alterations to the Julia Set 1
           </figcaption>
         </figure>
 
-
-<h3>Experiment with different transformations</h3>
-<p style="text-indent: 40px; line-height: 1.6;">
-By changing the transformation, additional visualization can give patterns to complex math functions. 
-</p>
-	      
-<pre><code class="language-python">
-       z = z ** 3 - 0.5  # Iteratively apply the transformation
-</code></pre>
-	      
-       <figure>
-          <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06f.jpg"
-	
-            alt="120 degrees"
-            width="600"
-            height="400"
-            loading="lazy"
-          />
-          <figcaption>
-            <strong></strong> The alternative transformation cubed
-          </figcaption>
-        </figure>
-
-<p style="text-indent: 40px; line-height: 1.6;">
-Additional transformation can reveal new patterns using sin in place of imaginary i. 
-</p>
-	      
-<pre><code class="language-python">
-        z = np.sin(z) + 1j * np.cos(z)   # Iteratively apply the transformation
-</code></pre>
-	      
         <figure>
           <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06g.jpg"
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab78f.jpg"
 	
             alt="120 degrees"
             width="600"
@@ -439,35 +321,11 @@ Additional transformation can reveal new patterns using sin in place of imaginar
             loading="lazy"
           />
           <figcaption>
-            <strong></strong> The alternative transformation 2
+            <strong></strong> Alterations to the Julia Set 2
           </figcaption>
         </figure>
 
-	      <pre><code class="language-python">
-def iterative_transform(grid, iterations):
-    x_grid, y_grid = grid
-    z = x_grid + 1j * y_grid  # Create a complex plane
-    for i in range(iterations):
-        z = np.sin(z) + 1j * np.cos(z)   # Iteratively apply the transformation
-    return np.real(z), np.imag(z)
-
-# Set the number of iterations
-iterations = 2
-</code></pre>
-	      
-        <figure>
-          <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06h.jpg"
-	
-            alt="120 degrees"
-            width="600"
-            height="400"
-            loading="lazy"
-          />
-          <figcaption>
-            <strong></strong> The alternative transformation with iteration 2 
-          </figcaption>
-        </figure>
+		    
 
 
 	    
@@ -479,7 +337,11 @@ iterations = 2
       <section id="conclusion">
         <h6>Conclusion</h6>
         <p>
-In this lab, a simple 2D grid is transformed into visual patterns using complex number arithmetic and iterative functions. The applied transformation involves squaring a complex number and subtracting half of its real part—a process that leads to fractal formation when repeated. NumPy performs computations in the complex plane, while Matplotlib visualizes the results. Alterations to the grid size and transformation rules can change the visual output, enabling the generation of an unlimited variety of complex patterns. By combining basic programming with abstract mathematical concepts, we are able to analyze phenomena that were previously difficult to represent or understand. Here iteration was kept low, in some of the higher iterations tried, the plot lost large amount points, this may need to be evualated in a 3D environment for a better understanding. 
+
+		
+		
+		enter text  here
+		
 
         </p>
       </section>
