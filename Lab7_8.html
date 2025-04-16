@@ -216,7 +216,75 @@ plt.show()
             <strong></strong> The plot of Mandelbrot Set
           </figcaption>
 </figure>
+<h3> Alterations to the Mandelbrot Set </h3>
+<p style="text-indent: 40px; line-height: 1.6;">
+ An alteration for the Mandelbrot available in Python is to change the color map from the original hot to plasma or inferno.
+</p>	
+<pre><code class="language-python">
+ plt.imshow(n3.T, extent=[xmin, xmax, ymin, ymax], cmap='plasma')	
+</code></pre>	    
+ 	    
+	      
+<figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab78f.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> Mandlebrot colormap plasma
+          </figcaption>
+</figure>
 
+	    
+
+<figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab78g.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> Mandlebrot colormap inferno
+          </figcaption>
+        </figure>
+
+<p style="text-indent: 40px; line-height: 1.6;">
+ Another alteration for the Mandelbrot is to alter colormap.
+</p>	
+	    
+<pre><code class="language-python">
+  while abs(z) <= 2 and n < max_iter: 	
+</code></pre>
+<p style="text-indent: 40px; line-height: 1.6;">
+ wg=hen changing 2 to 1
+</p>		
+<pre><code class="language-python">
+  while abs(z) <= 1 and n < max_iter: 	
+</code></pre>
+<figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab78h.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> Mandlebrot colormap inferno
+          </figcaption>
+        </figure>
+
+<p style="text-indent: 40px; line-height: 1.6;">
+ Another alteration for the Mandelbrot is to change the escape threshold
+</p>		     
 
  <h3>2. Julia Set Code Walkthrough</h3>
 
@@ -248,7 +316,7 @@ def julia_set(c, xmin, xmax, ymin, ymax, width, height, max_iter):
    
 <p style="text-indent: 40px; line-height: 1.6;">
  
-        </p>	    
+</p>	    
 	      
         <figure>
           <img 
@@ -302,6 +370,7 @@ c = complex(-0.4, 0.6)
 <p style="text-indent: 40px; line-height: 1.6;">
 The next alteration code where c = 0.285 + 0.01j
 </p>
+		    
 <pre><code class="language-python">
 c = complex(0.285, 0.01)
 </code></pre>
@@ -318,7 +387,8 @@ c = complex(0.285, 0.01)
           <figcaption>
             <strong></strong> alterations to the Julia Set c = complex(0.285, 0.01)
           </figcaption>
-        </figure>
+</figure>
+		    
 <p style="text-indent: 40px; line-height: 1.6;">
 The next alteration code where c = 0 + 1j
 </p>
