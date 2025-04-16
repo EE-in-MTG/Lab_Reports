@@ -228,18 +228,32 @@ Our third function julia_set(c, ...) generates the Julia set for a fixed complex
 </p>	  
 	    
 <pre><code class="language-python">
-plt.imshow(n3.T, extent=[xmin, xmax, ymin, ymax], cmap='hot')
+def julia_set(c, xmin, xmax, ymin, ymax, width, height, max_iter):
+    r1 = np.linspace(xmin, xmax, width)
+    r2 = np.linspace(ymin, ymax, height)
+    n3 = np.empty((width, height))
+
+    for i in range(width):
+        for j in range(height):
+            z = r1[i] + 1j * r2[j]
+            n = 0
+            while abs(z) <= 2 and n < max_iter:
+                z = z*z + c
+                n += 1
+            n3[i, j] = n
+
+    return n3
 </code></pre>
 
-<h3>3. Experiments and Enhancements</h3>
+ 
    
 <p style="text-indent: 40px; line-height: 1.6;">
-Next the plotting is used to display the grid, blus points represent the grid in Cartesian space before any transformations are applied. Change to the size parameter from 50 to 10, made a ten by ten grid, where changing to 1000 made the grid appear solid blue. The sample rate of the data can be adjusted in the same way when recording audio, electrical data or other scientific measurements. This sample rate in audio in linear in time, where the larger the sample rate, the more accuracte the reproduction from the digital domain back to analong can represent the original signal without artifacts or distortion. 
+ 
         </p>	    
 	      
         <figure>
           <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/Lab06a.jpg"
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab78b.jpg"
 	
             alt="120 degrees"
             width="600"
@@ -251,7 +265,7 @@ Next the plotting is used to display the grid, blus points represent the grid in
           </figcaption>
         </figure>
 
-<h3>Iterative Transformation on a 2D grid</h3>
+<h3>Julia Set </h3>
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
 The next code applies iterative transformation where the grid points are mapped with complex plane. Here a new variable is sent to the function for iterations, a condition of a for loop where the transformation is  asquare and then subtracting one half. The function returns both real and imaginary values. With the interations set to one, the grib begins to distortas shown below.  As a non linear structure the slop is not constant, this is visually exposed in the plot. 
