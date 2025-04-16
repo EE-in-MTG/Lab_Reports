@@ -82,10 +82,24 @@ def mandelbrot(c, max_iter):
 <p style="text-indent: 40px; line-height: 1.6;">
  Function 2: mandelbrot_set(...) generates the entire Mandelbrot set by iterating over a grid of complex numbers and calling mandelbrot() for each.
 
-The function uses input of the grid boundaries (xmin, xmax, etc.), resolution (width, height), and max iteration count. The function returnns a 2D array n3 representing the escape-time values for visualization.
+The function uses input of the grid boundaries (xmin, xmax, etc.), resolution (width, height), and max iteration count. The function returns a 2D array n3 representing the escape-time values for visualization.
         </p>
 	      
+<pre><code class="language-python">
+@jit(nopython=True)
+def mandelbrot_set(xmin, xmax, ymin, ymax, width, height, max_iter):
+    r1 = np.linspace(xmin, xmax, width)
+    r2 = np.linspace(ymin, ymax, height)
+    n3 = np.empty((width, height))
 
+    for i in range(width):
+        for j in range(height):
+            n3[i, j] = mandelbrot(r1[i] + 1j * r2[j], max_iter)
+
+    return n3
+</code></pre>
+
+	    
 <pre><code class="language-python">
 plt.imshow(n3.T, extent=[xmin, xmax, ymin, ymax], cmap='hot')
 </code></pre>
