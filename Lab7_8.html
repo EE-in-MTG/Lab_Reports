@@ -54,12 +54,12 @@
      
 <h3>1. Mandelbrot Set Code Walkthrough</h3>
 
-	      <p style="text-indent: 40px; line-height: 1.6;">
+<p style="text-indent: 40px; line-height: 1.6;">
 Function 1: mandelbrot(c, max_iter) determines how many iterations it takes for a complex number z to "escape" beyond a radius of 2, under the iteration rule: z = z² + c.
 This function returns the iteration count n, which is used to color each pixel.
         </p>
 
- <pre><code class="language-python">
+<pre><code class="language-python">
 @jit(nopython=True)
 def mandelbrot(c, max_iter):
     z = 0
@@ -72,8 +72,8 @@ def mandelbrot(c, max_iter):
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
  Function 2: mandelbrot_set(...) generates the entire Mandelbrot set by iterating over a grid of complex numbers and calling mandelbrot() for each.
-The function uses input of the grid boundaries (xmin, xmax, etc.), resolution (width, height), and max iteration count. The function returns a 2D array n3 representing the escape-time values for visualization.
-        </p>
+The function uses input of the grid boundaries (xmin, xmax, etc.), resolution (width, height), and max iteration count. The function returns a 2D array n3 representing the escape-time values for visualization. This function alse creates the complex set with the real portion "i" and the imginary square root of negative one as "j". 
+</p>
 	      
 <pre><code class="language-python">
 @jit(nopython=True)
@@ -91,7 +91,7 @@ def mandelbrot_set(xmin, xmax, ymin, ymax, width, height, max_iter):
 	    
 <p style="text-indent: 40px; line-height: 1.6;">
 Next, the variables, or arguments, are set. 
-        </p>
+</p>
 	    
 <pre><code class="language-python">
 xmin, xmax, ymin, ymax = -2.0, 1.0, -1.5, 1.5
@@ -101,7 +101,7 @@ max_iter = 100
 
 <p style="text-indent: 40px; line-height: 1.6;">
 Now the codes gets a little unclear as to the intentions, a mandlebrot set is created with the parameters we have already created, then thos parameters are altered and the same funnction call, creates a mandelbrot set, again as "n3". The last part of this setion is the plotting image below. 
- </p>
+</p>
 
 <pre><code class="language-python">
  xmin, xmax, ymin, ymax = -0.75, -0.74, 0.1, 0.11  # Zoom into this specific area
@@ -119,7 +119,7 @@ plt.title("Mandelbrot Set - Zoomed In")
 plt.show()
 </code></pre>
 
-       <figure>
+<figure>
           <img 
 		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab78a.jpg"
 	
@@ -129,16 +129,13 @@ plt.show()
             loading="lazy"
           />
           <figcaption>
-            <strong></strong> The unaltered 50 by 50 grid
+            <strong></strong> The plot of Mandelbrot Set
           </figcaption>
-        </figure>
+</figure>
 
 
-
-	    
-	    
  <h3>2. Julia Set Code Walkthrough</h3>
-	      <p style="text-indent: 40px; line-height: 1.6;">
+<p style="text-indent: 40px; line-height: 1.6;">
 Our third function julia_set(c, ...) generates the Julia set for a fixed complex constant c. The julia set process is similar to Mandelbrot, but each point starts with z = pixel_value and applies z = z² + c with constant c. The key difference is the constant c is fixed for Julia, while it's the pixel value in Mandelbrot. Different constants c drastically alter the shape of the Julia set.
 </p>	  
 	    
@@ -147,10 +144,7 @@ plt.imshow(n3.T, extent=[xmin, xmax, ymin, ymax], cmap='hot')
 </code></pre>
 
 <h3>3. Experiments and Enhancements</h3>
-
-	    
-
-	    
+   
 <p style="text-indent: 40px; line-height: 1.6;">
 Next the plotting is used to display the grid, blus points represent the grid in Cartesian space before any transformations are applied. Change to the size parameter from 50 to 10, made a ten by ten grid, where changing to 1000 made the grid appear solid blue. The sample rate of the data can be adjusted in the same way when recording audio, electrical data or other scientific measurements. This sample rate in audio in linear in time, where the larger the sample rate, the more accuracte the reproduction from the digital domain back to analong can represent the original signal without artifacts or distortion. 
         </p>	    
@@ -173,7 +167,6 @@ Next the plotting is used to display the grid, blus points represent the grid in
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
 The next code applies iterative transformation where the grid points are mapped with complex plane. Here a new variable is sent to the function for iterations, a condition of a for loop where the transformation is  asquare and then subtracting one half. The function returns both real and imaginary values. With the interations set to one, the grib begins to distortas shown below.  As a non linear structure the slop is not constant, this is visually exposed in the plot. 
- 
  </p>	 
 
 <pre><code class="language-python">
