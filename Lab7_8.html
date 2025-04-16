@@ -71,12 +71,24 @@ def mandelbrot(c, max_iter):
 </code></pre>
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
- Function 2: mandelbrot_set(...) generates the entire Mandelbrot set by iterating over a grid of complex numbers and calling mandelbrot() for each.
+ The next function definition, or declaration, "mandelbrot_set(...)" generates the entire Mandelbrot set by iterating over a grid of complex numbers and calling mandelbrot() for each.
 The function uses input of the grid boundaries (xmin, xmax, etc.), resolution (width, height), and max iteration count. The function returns a 2D array n3 representing the escape-time values for visualization. This function alse creates the complex set with the real portion "i" and the imginary square root of negative one as "j". 
 </p>
 
+	    <pre><code class="language-python">
+@jit(nopython=True)
+def mandelbrot_set(xmin, xmax, ymin, ymax, width, height, max_iter):
+    r1 = np.linspace(xmin, xmax, width)
+    r2 = np.linspace(ymin, ymax, height)
+    n3 = np.empty((width, height))
 
-	    enter table here 
+    for i in range(width):
+        for j in range(height):
+            n3[i, j] = mandelbrot(r1[i] + 1j * r2[j], max_iter)
+
+    return n3
+</code></pre>
+	    
 <p style="text-indent: 40px; line-height: 1.6;">
 The table below helps to understand the values of constants during the first 10 iterations. The complex values are plotting points on the map. 
  </p>
@@ -157,19 +169,7 @@ The table below helps to understand the values of constants during the first 10 
 
 
 	    
-<pre><code class="language-python">
-@jit(nopython=True)
-def mandelbrot_set(xmin, xmax, ymin, ymax, width, height, max_iter):
-    r1 = np.linspace(xmin, xmax, width)
-    r2 = np.linspace(ymin, ymax, height)
-    n3 = np.empty((width, height))
 
-    for i in range(width):
-        for j in range(height):
-            n3[i, j] = mandelbrot(r1[i] + 1j * r2[j], max_iter)
-
-    return n3
-</code></pre>
 	    
 <p style="text-indent: 40px; line-height: 1.6;">
 Next, the variables, or arguments, are set. 
