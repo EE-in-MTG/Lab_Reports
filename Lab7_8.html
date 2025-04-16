@@ -90,7 +90,39 @@ def mandelbrot_set(xmin, xmax, ymin, ymax, width, height, max_iter):
 </code></pre>
 	    
 <p style="text-indent: 40px; line-height: 1.6;">
-The table below helps to understand the values of constants during the first 10 iterations. The complex values are plotting points on the map. 
+The table below illustrates the behavior of key variables during the first 10 iterations of the Mandelbrot function. Each complex value represents a coordinate on the complex plane, which is visualized in the fractal plot. The magnitude of each complex number is calculated using the formula:
+
+∣
+𝑧
+∣
+=
+𝑎
+2
++
+𝑏
+2
+∣z∣= 
+a 
+2
+ +b 
+2
+ 
+​
+ 
+This magnitude, shown in the table as 
+∣
+𝑧
+∣
+∣z∣, is essential for determining whether the iterative sequence escapes or remains bounded.
+
+In engineering, complex numbers are commonly expressed as 
+𝑎
++
+𝑏
+𝑖
+a+bi, where 
+𝑏
+b corresponds to the imaginary part—often interpreted as the "y-axis" on the complex plane. This imaginary component is especially important in applications like AC circuit analysis, where it represents phase differences in alternating signals. Evaluating the magnitude of complex impedance is a key step in impedance matching, which is critical for maximizing power transfer in electrical systems.
  </p>
 	    
 <table>
