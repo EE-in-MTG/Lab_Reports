@@ -202,7 +202,78 @@ plot_grid(fractal_grid)
           </figcaption>
         </figure>
 
-	      
+<table>
+  <thead>
+    <tr>
+      <th>Iteration (n)</th>
+      <th>z<sub>n</sub> (Complex Value)</th>
+      <th>|z<sub>n</sub>|</th>
+      <th>Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000</td>
+      <td>Start at 0</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>-0.75 + 0.1j</td>
+      <td>0.757</td>
+      <td>First step adds c</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.5225 - 0.15j</td>
+      <td>0.543</td>
+      <td>Now squaring and adding again</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>-0.5086 - 0.0567j</td>
+      <td>0.511</td>
+      <td>Back into negative real territory</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>-0.5092 + 0.1576j</td>
+      <td>0.533</td>
+      <td>Real bouncing, imaginary increasing</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>-0.2343 - 0.0607j</td>
+      <td>0.242</td>
+      <td>Now smaller in magnitude again</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>-0.8057 + 0.1285j</td>
+      <td>0.816</td>
+      <td>Real dips further negative</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>-0.2284 - 0.1073j</td>
+      <td>0.252</td>
+      <td>Starts looping again</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>-0.7939 + 0.1490j</td>
+      <td>0.807</td>
+      <td>Still bounded (&lt; 2)</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>-0.2624 - 0.1362j</td>
+      <td>0.296</td>
+      <td>Continues inside set</td>
+    </tr>
+  </tbody>
+</table>	      
 	      
 <p style="text-indent: 40px; line-height: 1.6;">
 When making changes to this function variable, it should be notes that this function runs from the grid created previously and changes there can be reset, back to 50, to intrepret current transformation more clearly. after resetting the plot and changing iteration to iterations = 2, the increase of iteration causes more depth in transformation. The shpaes begin to show signs from the squaring of the complex number, this begins fractal behavior.	
