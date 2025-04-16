@@ -23,7 +23,10 @@ Lab 5: Infinite Dust  https://ee-in-mtg.github.io/Lab_Reports/Lab5.html
 Lab 6: Enter the Matrix https://ee-in-mtg.github.io/Lab_Reports/Lab6.html          
    Colab: https://colab.research.google.com/drive/1jKjKdcCfLXbA0pai2-zJo5SC3ayvNjUi
 
-Lab 7 / 8: https://github.com/EE-in-MTG/Lab_Reports/blob/main/Lab7_8.html
+Lab 7 / 8: 
+https://ee-in-mtg.github.io/Lab_Reports/Lab7_8.html
+https://github.com/EE-in-MTG/Lab_Reports/blob/main/Lab7_8.html
+
    Colab: https://colab.research.google.com/drive/1bkm3V2wQyLys2Cyud5qvaqpTk-Z0bRYT
    Colab: https://colab.research.google.com/drive/1yz-hylcUBdwzfHxel4u0X3O7DRdytWro
 
