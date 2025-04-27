@@ -32,8 +32,9 @@ https://github.com/EE-in-MTG/Lab_Reports/blob/main/Lab7_8.html
    
    Colab: https://colab.research.google.com/drive/1yz-hylcUBdwzfHxel4u0X3O7DRdytWro
 
-Lab 9 :
-https://github.com/EE-in-MTG/Lab_Reports/blob/main/Lab9.html
+Lab 9 : Fractals and L-Systems
+https://ee-in-mtg.github.io/Lab_Reports/Lab9.html
+
 
    Colab: https://colab.research.google.com/drive/1oDLKYFTo40my63eRCARA84ZYUi1ytHty#scrollTo=tFcuQY63kEGS
 
