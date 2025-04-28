@@ -249,91 +249,7 @@ def f4(x, y):
             <strong></strong> Original 
           </figcaption>
 </figure>
-
-<p style="text-indent: 40px; line-height: 1.6;">
- Code modifications use color mapping based on height/y-values and variation of the Barnsley Maple by modified coefficients.
- </p>
-
-<pre><code class="language-python">
-# Modified: Color based on y-value for height effect
-x_vals, y_vals = zip(*fern_points)
-colors = np.array(y_vals)
-
-plt.figure(figsize=(6, 10))
-plt.scatter(x_vals, y_vals, c=colors, cmap='summer', s=0.1)
-plt.title('Barnsley Fern with Height-based Color')
-plt.show()
-
-# New: Maple-style variant of Barnsley Fern
-def barnsley_maple(iterations):
-    x, y = 0, 0
-    points = []
-    for _ in range(iterations):
-        rand = random.random()
-        if rand < 0.02:
-            x, y = 0, 0.25 * y
-        elif rand < 0.84:
-            x, y = 0.85 * x + 0.02 * y, -0.02 * x + 0.85 * y + 1.6
-        elif rand < 0.92:
-            x, y = 0.2 * x - 0.31 * y, 0.255 * x + 0.245 * y + 0.29
-        else:
-            x, y = -0.25 * x + 0.28 * y, 0.26 * x + 0.24 * y + 0.44
-        points.append((x, y))
-    return points
-
-maple_points = barnsley_maple(iterations)
-x_maple, y_maple = zip(*maple_points)
-
-plt.figure(figsize=(6, 10))
-plt.scatter(x_maple, y_maple, s=0.1, color='darkred')
-plt.title('Barnsley Maple Variant')
-plt.show()
-
-</code></pre>
-	    
-<figure>
-          <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9b1.jpg"
-	
-            alt="120 degrees"
-            width="600"
-            height="400"
-            loading="lazy"
-          />
-          <figcaption>
-            <strong></strong> Modification
-          </figcaption>
-</figure>
-
-	    
-<h3>3. L-Systems - Fractal Tree</h3>	
-
-
-
-<p style="text-indent: 40px; line-height: 1.6;">
-Uses recursive rules to simulate branching patterns.
-
-Classic fractal tree model. 
-</p>
-
-<figure>
-          <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9c.jpg"
-	
-            alt="120 degrees"
-            width="600"
-            height="400"
-            loading="lazy"
-          />
-          <figcaption>
-            <strong></strong> Barnsley Fern original
-          </figcaption>
-</figure>
-
-
-	    
-
-
+  
 <p style="text-indent: 40px; line-height: 1.6;">
 
 The original Barnsley Fern features small rotations and grows mostly vertically creating the appearance of a traditional green fern. In the modified "Spiral Fern" adjusts rotations to a curling effect at the tips, twisting patterns on left to right and patterns on the right move left. Other variations can be created like the "Longer Lsss Open Plant"  makes the leafs overlap as if they are a precurser in growth stage to the original. The Third modification plant example grows and spirals looks similar to a dandelion or cloud. Each modification changes the overall structure and style of the fractal.
@@ -350,7 +266,7 @@ The original Barnsley Fern features small rotations and grows mostly vertically 
             loading="lazy"
           />
           <figcaption>
-            <strong></strong> Modification
+            <strong></strong> Modification Curl, Twist
           </figcaption>
 </figure>
 	      
@@ -364,13 +280,13 @@ The original Barnsley Fern features small rotations and grows mostly vertically 
             loading="lazy"
           />
           <figcaption>
-            <strong></strong> Modification
+            <strong></strong> Modification Longer Less Open
           </figcaption>
 </figure>
 
 	    
 <p style="text-indent: 40px; line-height: 1.6;">
-Dandelion: 
+Dandelion modifications in code: 
  </p>
 
  
@@ -409,9 +325,49 @@ def f4(x, y):
             loading="lazy"
           />
           <figcaption>
-            <strong></strong> Modification
+            <strong></strong> Modification Dandelion
           </figcaption>
 </figure>
+
+
+
+
+
+
+
+
+
+		
+	    
+<h3>3. L-Systems - Fractal Tree</h3>	
+
+
+
+<p style="text-indent: 40px; line-height: 1.6;">
+Uses recursive rules to simulate branching patterns.
+
+Classic fractal tree model. 
+</p>
+
+<figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9c.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> Barnsley Fern original
+          </figcaption>
+</figure>
+
+
+	    
+
+
+
 
 
 
