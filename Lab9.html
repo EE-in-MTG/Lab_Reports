@@ -335,52 +335,28 @@ Classic fractal tree model.
 
 
 <p style="text-indent: 40px; line-height: 1.6;">
-Added randomness to angle and length for a more natural look.
 
-Customizable depth and angle.
+The original Barnsley Fern features small rotations and grows mostly vertically creating the appearance of a traditional green fern. In the modified "Spiral Fern" adjusts rotations to a curling effect at the tips, twisting patterns on left to right and patterns on the right move left. Other variations can be created like the "Longer Lsss Open Plant"  makes the leafs overlap as if they are a precurser in growth stage to the original. The Third modification plant example grows and spirals looks similar to a dandelion or cloud. Each modification changes the overall structure and style of the fractal.
 
-Randomized trees mimic natural growth more closely, enhancing realism over strictly deterministic fractals.
 </p>
-
-
-	    
-<pre><code class="language-python">
-	
-# Randomized tree-like fractal
-import turtle
-import random
-
-turtle.speed(0)
-turtle.hideturtle()
-turtle.bgcolor("black")
-turtle.color("lime")
-
-def draw_branch(branch_length, t):
-    if branch_length > 5:
-        angle = random.randint(20, 40)
-        length_factor = random.uniform(0.6, 0.8)
-
-        t.forward(branch_length)
-        t.left(angle)
-        draw_branch(branch_length * length_factor, t)
-        t.right(angle * 2)
-        draw_branch(branch_length * length_factor, t)
-        t.left(angle)
-        t.backward(branch_length)
-
-# Initial call
-turtle.left(90)
-turtle.penup()
-turtle.goto(0, -250)
-turtle.pendown()
-draw_branch(100, turtle)
-turtle.done()
-
-</code></pre>
 
 <figure>
           <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9c1.jpg"
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9bm1.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> Modification
+          </figcaption>
+</figure>
+	      
+<figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9bm2.jpg"
 	
             alt="120 degrees"
             width="600"
@@ -392,6 +368,56 @@ turtle.done()
           </figcaption>
 </figure>
 
+	    
+<p style="text-indent: 40px; line-height: 1.6;">
+Dandelion: 
+ </p>
+
+ 
+
+<pre><code class="language-python">
+
+def f1(x, y):
+    x = 0
+    y = 0.15 * y
+    return x, y
+
+def f2(x, y):
+    x_new = 0.9 * x + 0.5 * y
+    y_new = -0.5 * x + 0.5 * y + 1.0
+    return x_new, y_new
+
+def f3(x, y):
+    x_new = 0.5 * x - 0.5 * y
+    y_new = 0.5 * x + 0.5 * y + 1.0
+    return x_new, y_new
+
+def f4(x, y):
+    x_new = -0.5 * x + 0.5 * y
+    y_new = 0.5 * x + 0.5 * y + 1.0
+    return x_new, y_new
+<p style="text-indent: 40px; line-height: 1.6;">
+
+
+<figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9bm3.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> Modification
+          </figcaption>
+</figure>
+
+
+
+
+
+	      
 
 	    
 <h3> 4. Hilbert Curve (Space-Filling Curve) </h3>
