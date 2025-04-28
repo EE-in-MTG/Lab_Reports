@@ -15,7 +15,7 @@
 	  
     <p class="author">
       Joseph D Wilson <br />
-      03/26/2025
+      04/27/2025
     </p>
   </header>
   <main>
@@ -30,7 +30,7 @@
         <h2>Introduction: Mandelbrot and Julia Set Visualization</h2>
         <p>
 
-		Fractal geometric patterns exhibit recursive patterns at adjustable scales. Two iconic examples of fractals are the Mandelbrot Set and Julia Set. Both are based on the iterative behavior of complex quadratic functions. In this lab, we explore these sets using Python and performance-optimized functions to generate high-resolution visualizations. By experimenting with constants, zoom levels, and colormaps, we gain insights into the complexity and beauty of these mathematical structures.
+This lab explores fractals and recursive pattern computation methods including the Chaos Game, Iterated Function Systems for the Barnsley Fern, and L-Systems to generate plant-like structures and space-filling curves such as the Hilbert Curve. We analyze, modify, and extend the code to enhance visual outcomes and explore novel fractal variants.
           
         </p>
       </section>
@@ -52,11 +52,28 @@
       
       
      
-<h3>1. Mandelbrot Set Code Walkthrough</h3>
+<h3>1. The Sierpinski Triangle via the Chaos Game</h3>
 
 <p style="text-indent: 40px; line-height: 1.6;">
-Creating definition of the function "mandelbrot(c, max_iter)" determines how complex numbers are being square and c is added. Many iterations it takes for a complex number z to "escape" beyond a radius of 2, under the iteration rule: z = z² + c. Also z and n are always begining at zero. 
-This function returns the iteration count n, which is used to color each pixel.
+The original code randomly selects one of three triangle vertices, computes the midpoint between the current point and the selected vertex, and iterates this process to generate points converging on the Sierpinski Triangle.  
+        </p>
+
+<figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9a.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> The plot of Mandelbrot Set
+          </figcaption>
+</figure>
+
+<p style="text-indent: 40px; line-height: 1.6;">
+A modification for this would be adding color gradient to represent iteration progression as a representation of the time domain.Another modification can be on the shape of the triagnles, an option to change triangle shape scalene or isosceles can change the basic element fo the structure.
         </p>
 
 <pre><code class="language-python">
@@ -88,6 +105,22 @@ def mandelbrot_set(xmin, xmax, ymin, ymax, width, height, max_iter):
 
     return n3
 </code></pre>
+
+	    <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9a1.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> The plot of Mandelbrot Set
+          </figcaption>
+</figure>
+	    
+	    
 	    
 <p style="text-indent: 40px; line-height: 1.6;">
 The table below illustrates the behavior of key variables during the first 10 iterations of the Mandelbrot function. Each complex value represents a coordinate on the complex plane, which is visualized in the fractal plot. The magnitude of each complex number is calculated using the formula:
