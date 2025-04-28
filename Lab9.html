@@ -51,7 +51,32 @@ This lab explores fractals and recursive pattern computation methods including t
 
 <p style="text-indent: 40px; line-height: 1.6;">
 The original code randomly selects one of three triangle vertices, computes the midpoint between the current point and the selected vertex, and iterates this process to generate points converging on the Sierpinski Triangle.  
-        </p>
+ </p>
+<p style="text-indent: 40px; line-height: 1.6;">
+The Chaos Game repeatedly moves halfway between the current point and a random triangle vertex.
+ The code first creates a function “midpoint”, this function takes two points P=(x1,y1) and Q=(x2,y2), then calculates the midpoint formula M=((x1+x2)/2,(y1+y2)/2)and returns the midpoint between them. 
+Next, the code creates a list equivalent of an equilateral triangle vertices. The list holds three tuples, which represent an XY point in a 2-dimensional plane. This gives shape of always being “bottom left”, “top”, and “bottom right” and restricts rotation, locking the 2D orientation of each triangle like grid. 
+ </p>
+<pre><code class="language-python">
+vertices = [(0, 0), (2, 2*np.sqrt(3)), (4, 0)]
+</code></pre>
+
+<p style="text-indent: 40px; line-height: 1.6;">
+The software creates two lists, using a variable iterations for the length of the lists X and Y. When created, they are filled with zeros. If the variable iterations = five, then the lists would look like 
+ </p>
+<pre><code class="language-python">
+x = [0, 0, 0, 0, 0]
+y = [0, 0, 0, 0, 0]
+</code></pre>
+<p style="text-indent: 40px; line-height: 1.6;">
+
+This list works together to store the points that are created on the 2D plane. They are calculated in a for loop, with the length of iterations, by the midpoint function. So the concept is if you randomly take 1 of 3 ends of a triangle and record the midpoint, then continuing your recording will produce the Sierpinski triangles. This concept of points instead of drawing is new, below are the iterations lowers to 50,500 and 5000 to reinforce the imagine created is by points. 
+
+Starting with an original triangle, which has three sides and three points, you begin by connecting the midpoints of each side. This action creates three smaller triangles, one located at each corner of the original triangle. The process is then repeated for each of these remaining triangles: for each one, you again find the midpoints of its sides, connect them, and remove the new central triangle. As a result, each triangle once again divides into three smaller triangles, and this recursive process continues indefinitely, forming the self-similar structure of the Sierpinski Triangle.
+ </p>
+
+
+	      
 
 <figure>
           <img 
