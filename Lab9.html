@@ -68,12 +68,12 @@ The original code randomly selects one of three triangle vertices, computes the 
             loading="lazy"
           />
           <figcaption>
-            <strong></strong> The plot of Mandelbrot Set
+            <strong></strong> Original 
           </figcaption>
 </figure>
 
 <p style="text-indent: 40px; line-height: 1.6;">
-A modification for this would be adding color gradient to represent iteration progression as a representation of the time domain.Another modification can be on the shape of the triagnles, an option to change triangle shape scalene or isosceles can change the basic element fo the structure.
+A modification for this would be adding color gradient to represent iteration progression as a representation of the time domain.Another modification can be on the shape of the triagnles, an option to change triangle shape scalene or isosceles can change the basic element fo the structure. The shape of the triangle can dramatically influence the overall pattern aesthetics. Color mapping iterations improves visual insight into convergence.
         </p>
 
 <pre><code class="language-python">
@@ -116,124 +116,169 @@ def mandelbrot_set(xmin, xmax, ymin, ymax, width, height, max_iter):
             loading="lazy"
           />
           <figcaption>
-            <strong></strong> The plot of Mandelbrot Set
+            <strong></strong> Modification
           </figcaption>
 </figure>
 	    
-	    
+<h3>2. Barnsley Fern (Iterated Function System)</h3>	    
 	    
 <p style="text-indent: 40px; line-height: 1.6;">
-The table below illustrates the behavior of key variables during the first 10 iterations of the Mandelbrot function. Each complex value represents a coordinate on the complex plane, which is visualized in the fractal plot. The magnitude of each complex number is calculated using the formula:
+Code uses four affine transformations with assigned probabilities and generates a self-similar Barnsley Fern.
 
-|z| = sqrt(a² + b²)
-
-This magnitude, shown in the table as |z|, is essential for determining whether the iterative sequence escapes or remains bounded.
-
-In engineering, complex numbers are commonly expressed as a + bi, where b corresponds to the imaginary part—often interpreted as the "y-axis" on the complex plane. This imaginary component is especially important in applications like AC circuit analysis, where it represents phase differences in alternating signals. Evaluating the magnitude of complex impedance is a key step in impedance matching, which is critical for maximizing power transfer in electrical systems.
  </p>
-	    
-<table>
-  <thead>
-    <tr>
-      <th>Iteration (n)</th>
-      <th>z<sub>n</sub> (Complex Value)</th>
-      <th>|z<sub>n</sub>|</th>
-      <th>Explanation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000</td>
-      <td>Start at 0</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>-0.75 + 0.1j</td>
-      <td>0.757</td>
-      <td>First step adds c</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>0.5225 - 0.15j</td>
-      <td>0.543</td>
-      <td>Now squaring and adding again</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>-0.5086 - 0.0567j</td>
-      <td>0.511</td>
-      <td>Back into negative real territory</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>-0.5092 + 0.1576j</td>
-      <td>0.533</td>
-      <td>Real bouncing, imaginary increasing</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>-0.2343 - 0.0607j</td>
-      <td>0.242</td>
-      <td>Now smaller in magnitude again</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>-0.8057 + 0.1285j</td>
-      <td>0.816</td>
-      <td>Real dips further negative</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>-0.2284 - 0.1073j</td>
-      <td>0.252</td>
-      <td>Starts looping again</td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td>-0.7939 + 0.1490j</td>
-      <td>0.807</td>
-      <td>Still bounded (&lt; 2)</td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td>-0.2624 - 0.1362j</td>
-      <td>0.296</td>
-      <td>Continues inside set</td>
-    </tr>
-  </tbody>
-</table>
 
-	    
-<p style="text-indent: 40px; line-height: 1.6;">
-Next, the variables, or arguments, are set. 
-</p>
-	    
-<pre><code class="language-python">
-xmin, xmax, ymin, ymax = -2.0, 1.0, -1.5, 1.5
-width, height = 800, 800
-max_iter = 100
-</code></pre>
+<figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9b.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> Original 
+          </figcaption>
+</figure>
 
 <p style="text-indent: 40px; line-height: 1.6;">
-Now the codes gets a little unclear as to the intentions, a mandlebrot set is created with the parameters we have already created, then thos parameters are altered and the same funnction call, creates a mandelbrot set, again as "n3". The last part of this setion is the plotting image below. 
-</p>
+ Code modifications use color mapping based on height/y-values and variation of the Barnsley Maple by modified coefficients.
+ </p>
 
 <pre><code class="language-python">
- xmin, xmax, ymin, ymax = -0.75, -0.74, 0.1, 0.11  # Zoom into this specific area
-width, height = 800, 800  # Resolution of the image
-max_iter = 1000  # Number of iterations
+# Modified: Color based on y-value for height effect
+x_vals, y_vals = zip(*fern_points)
+colors = np.array(y_vals)
 
-# Generate the Mandelbrot Set with zoom
-n3 = mandelbrot_set(xmin, xmax, ymin, ymax, width, height, max_iter)
-
-# Plotting the zoomed Mandelbrot Set
-plt.figure(figsize=(10, 10))
-plt.imshow(n3.T, extent=[xmin, xmax, ymin, ymax], cmap='hot')
-plt.colorbar()
-plt.title("Mandelbrot Set - Zoomed In")
+plt.figure(figsize=(6, 10))
+plt.scatter(x_vals, y_vals, c=colors, cmap='summer', s=0.1)
+plt.title('Barnsley Fern with Height-based Color')
 plt.show()
+
+# New: Maple-style variant of Barnsley Fern
+def barnsley_maple(iterations):
+    x, y = 0, 0
+    points = []
+    for _ in range(iterations):
+        rand = random.random()
+        if rand < 0.02:
+            x, y = 0, 0.25 * y
+        elif rand < 0.84:
+            x, y = 0.85 * x + 0.02 * y, -0.02 * x + 0.85 * y + 1.6
+        elif rand < 0.92:
+            x, y = 0.2 * x - 0.31 * y, 0.255 * x + 0.245 * y + 0.29
+        else:
+            x, y = -0.25 * x + 0.28 * y, 0.26 * x + 0.24 * y + 0.44
+        points.append((x, y))
+    return points
+
+maple_points = barnsley_maple(iterations)
+x_maple, y_maple = zip(*maple_points)
+
+plt.figure(figsize=(6, 10))
+plt.scatter(x_maple, y_maple, s=0.1, color='darkred')
+plt.title('Barnsley Maple Variant')
+plt.show()
+
+</code></pre>
+	    
+<figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9b1.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> Modification
+          </figcaption>
+</figure>
+
+	    
+<h3>2. Barnsley Fern (Iterated Function System)</h3>	
+
+
+
+<p style="text-indent: 40px; line-height: 1.6;">
+Uses recursive rules to simulate branching patterns.
+
+Classic fractal tree model. 
+</p>
+
+<figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9c.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> Original
+          </figcaption>
+</figure>
+
+
+	    
+
+
+<p style="text-indent: 40px; line-height: 1.6;">
+Added randomness to angle and length for a more natural look.
+
+Customizable depth and angle.
+
+Randomized trees mimic natural growth more closely, enhancing realism over strictly deterministic fractals.
+</p>
+
+<figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9c1.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> Modification
+          </figcaption>
+</figure>
+	    
+<pre><code class="language-python">
+	
+# Randomized tree-like fractal
+import turtle
+import random
+
+turtle.speed(0)
+turtle.hideturtle()
+turtle.bgcolor("black")
+turtle.color("lime")
+
+def draw_branch(branch_length, t):
+    if branch_length > 5:
+        angle = random.randint(20, 40)
+        length_factor = random.uniform(0.6, 0.8)
+
+        t.forward(branch_length)
+        t.left(angle)
+        draw_branch(branch_length * length_factor, t)
+        t.right(angle * 2)
+        draw_branch(branch_length * length_factor, t)
+        t.left(angle)
+        t.backward(branch_length)
+
+# Initial call
+turtle.left(90)
+turtle.penup()
+turtle.goto(0, -250)
+turtle.pendown()
+draw_branch(100, turtle)
+turtle.done()
+
 </code></pre>
 
 <figure>
