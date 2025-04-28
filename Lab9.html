@@ -62,12 +62,13 @@ vertices = [(0, 0), (2, 2*np.sqrt(3)), (4, 0)]
 </code></pre>
 
 <p style="text-indent: 40px; line-height: 1.6;">
-The software creates two lists, using a variable iterations for the length of the lists X and Y. When created, they are filled with zeros. If the variable iterations = five, then the lists would look like 
+The software creates two lists, using a variable iterations for the length of the lists X and Y. When created, they are filled with zeros. If the variable iterations = five, then the lists would look like the code output below. 
  </p>
 <pre><code class="language-python">
 x = [0, 0, 0, 0, 0]
 y = [0, 0, 0, 0, 0]
 </code></pre>
+	      
 <p style="text-indent: 40px; line-height: 1.6;">
 
 This list works together to store the points that are created on the 2D plane. They are calculated in a for loop, with the length of iterations, by the midpoint function. So the concept is if you randomly take 1 of 3 ends of a triangle and record the midpoint, then continuing your recording will produce the Sierpinski triangles. This concept of points instead of drawing is new, below are the iterations lowers to 50, 500 and 5000 to reinforce the imagine created is by points. 
@@ -125,52 +126,22 @@ Starting with an original triangle, which has three sides and three points, you 
             loading="lazy"
           />
           <figcaption>
-            <strong></strong> Original Sierpinski Triangle iteration value from code 
+            <strong></strong>  Sierpinski Triangle iteration original value from code 
           </figcaption>
 </figure>
 
 <p style="text-indent: 40px; line-height: 1.6;">
-A modification for this would be adding color gradient to represent iteration progression as a representation of the time domain.Another modification can be on the shape of the triagnles, an option to change triangle shape scalene or isosceles can change the basic element fo the structure. The shape of the triangle can dramatically influence the overall pattern aesthetics. Color mapping iterations improves visual insight into convergence.
+A modification for this would be changing the midpoint formula. Below the midpoint formula is raised .6, .7, .8 and then .9. This colapse the structure inside it self. An attempt to raise the ratio above. 1.0 cause an error, possible unbounded output. Changing the .5 in the midpoint to one resulted just a straight line.  
         </p>
 
 <pre><code class="language-python">
-import matplotlib.pyplot as plt
-from random import random, randint
-import numpy as np
-
 def midpoint(P, Q):
-    return (0.5 * (P[0] + Q[0]), 0.5 * (P[1] + Q[1]))
-
-# Modified: Allow custom triangle vertices
-vertices = [(0, 0), (2, 3), (4, 0)]  # Non-equilateral triangle
-iterates = 50000
-x, y = [0] * iterates, [0] * iterates
-x[0], y[0] = random(), random()
-
-colors = np.linspace(0, 1, iterates)  # Color gradient for plotting
-
-for i in range(1, iterates):
-    k = randint(0, 2)
-    x[i], y[i] = midpoint(vertices[k], (x[i-1], y[i-1]))
-
-plt.figure(figsize=(8, 8))
-plt.scatter(x, y, c=colors, cmap='viridis', s=0.1)
-plt.title('Modified Sierpinski Triangle with Color Gradient')
-plt.axis('equal')
-plt.show()
+    return (.5*(P[0] + Q[0]), .5*(P[1] + Q[1]))
 </code></pre>
-
-
-
-
-
-
-	      
-</code></pre>
-
-	    <figure>
+ 
+<figure>
           <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9a1.jpg"
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9am1.jpg"
 	
             alt="120 degrees"
             width="600"
@@ -178,7 +149,49 @@ plt.show()
             loading="lazy"
           />
           <figcaption>
-            <strong></strong> Modification
+            <strong></strong> Modification the midpoint formula from .5 to .6
+          </figcaption>
+</figure>
+
+<figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9am2.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> Modification the midpoint formula from .5 to .7
+          </figcaption>
+</figure>
+
+<figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9am3.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> Modification the midpoint formula from .5 to .8
+          </figcaption>
+</figure>
+
+<figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9am4.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> Modification the midpoint formula from .5 to .9
           </figcaption>
 </figure>
 	    
