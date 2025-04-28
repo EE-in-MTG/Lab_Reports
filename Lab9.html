@@ -379,16 +379,7 @@ A modification makes the tree structure appear less natural and by increasing th
           </figcaption>
 </figure>	    
 
-
-
-
-
-
-
-
-	      
-
-	    
+    
 <h3> 4. Hilbert Curve (Space-Filling Curve) </h3>
 
 
@@ -413,51 +404,46 @@ A Hilbert Curve is demostrated with the Turtle graphics. A Hilbert Curve is a fr
 
 
 <p style="text-indent: 40px; line-height: 1.6;">
-Animated Hilbert Curve drawing.
-
-Higher-order curves with color change by segment.
-The Hilbert Curve elegantly fills space with increasing complexity, useful in data mapping and visual compression schemes.
+We can start to mod the fratal to get a better understanding by lowering and sweaping up the iterations. Starting at 1, then gain a fell for the iteration and function, just by the second or third iteration we can tell what the code is doing by the natural feel for the divding. . 
 	
 </p>	
 	    
 <pre><code class="language-python">
-import turtle
-import time
-
-turtle.speed(0)
-turtle.hideturtle()
-turtle.bgcolor("black")
-turtle.color("cyan")
-
-def draw_hilbert_curve(length, level, angle):
-    if level == 0:
-        return
-    turtle.right(angle)
-    draw_hilbert_curve(length, level-1, -angle)
-    turtle.forward(length)
-    turtle.left(angle)
-    draw_hilbert_curve(length, level-1, angle)
-    turtle.forward(length)
-    draw_hilbert_curve(length, level-1, angle)
-    turtle.left(angle)
-    turtle.forward(length)
-    draw_hilbert_curve(length, level-1, -angle)
-    turtle.right(angle)
-
-# Animate
-turtle.penup()
-turtle.goto(-200, 200)
-turtle.pendown()
-
-draw_hilbert_curve(10, 4, 90)
-turtle.done()
-	
+iterations = 1 
 </code></pre>	    
  	    
 	      
 <figure>
           <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9c.jpg"
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9turtle1.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> Modification to Hilbert Curve
+          </figcaption>
+</figure>
+
+	      <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9turtle2.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> Modification to Hilbert Curve
+          </figcaption>
+</figure>
+
+	      <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9turtle3.jpg"
 	
             alt="120 degrees"
             width="600"
@@ -470,12 +456,30 @@ turtle.done()
 </figure>
 
 
-
+<p style="text-indent: 40px; line-height: 1.6;">
+We can also adust the angle from 90 degree to just a lowering of 5 degrees to see where the fractal changes.  . 
+	
+</p>
 
 
 		    
+<pre><code class="language-python">
+angle = 85
+</code></pre>	
 
-
+	      <figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9turtle4.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> Modification to Hilbert Curve
+          </figcaption>
+</figure>	      
 		    
 
 
