@@ -335,9 +335,6 @@ def f4(x, y):
 
 
 
-
-
-
 		
 	    
 <h3>3. L-Systems - Fractal Tree</h3>	
@@ -345,9 +342,7 @@ def f4(x, y):
 
 
 <p style="text-indent: 40px; line-height: 1.6;">
-Uses recursive rules to simulate branching patterns.
-
-Classic fractal tree model. 
+This next code, Lindenmayer System,  defines a recursive function to simulate how plants grow in biological structure.  This is done when repeatedly drawing branches based on geometric calculations. It starts with an initial point (x, y) and an angle, along with a specified branch length. At each step, the function checks whether the branch is longer than a minimum threshold; if it is, it continues. It then randomly chooses an angle variation between 20 and 40 degrees and a branch length reduction factor between 60% and 80%, introducing randomness to make the tree look more natural. The new endpoint of the branch is calculated using the x-coordinate adjusted by the cosine of the angle, and the y-coordinate by the sine of the angle, scaled by the branch length. From the new endpoint, two recursive calls are made to draw two new branches — one turning to the left and one to the right — each with a slightly rotated angle and a reduced length. This recursive splitting continues, creating smaller and smaller branches, until the branches become shorter than the threshold, at which point the recursion stops. 
 </p>
 
 <figure>
@@ -365,7 +360,24 @@ Classic fractal tree model.
 </figure>
 
 
-	    
+<p style="text-indent: 40px; line-height: 1.6;">
+A modification makes the tree structure appear less natural and by increasing the randomness in branching angles and reducing how much each new branch shrinks. The angles between branches are allowed to vary between 30° and 60°, resulting in a wider spread between left and right branches compared to the original. Additionally, the branch length shrinks less after each split, using a random factor between 70% and 90%, making the branches longer and the tree taller overall. These changes produce a tree that looks broader and less symmetrical, but since this became less lifelike, I chose to present in an alterative color. This almost gives a thrid demension when the idea is the overlap would be perceived as demenial. in this color looks more like a metal scrubbing pad.
+</p>
+
+
+<figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9L2.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> Barnsley Fern original
+          </figcaption>
+</figure>	    
 
 
 
