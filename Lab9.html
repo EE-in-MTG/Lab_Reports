@@ -198,9 +198,43 @@ def midpoint(P, Q):
 <h3>2. Barnsley Fern (Iterated Function System)</h3>	    
 	    
 <p style="text-indent: 40px; line-height: 1.6;">
-Code uses four affine transformations with assigned probabilities and generates a self-similar Barnsley Fern.
 
+This code uses probabilities to set how often each of the f1-4 functions is called. The process to generate the Barnsley Fern begins by starting at the initial point (0, 0). At each step, the program randomly selects one of four transformation functions, with each choice weighted by a set probability. Once a function is selected, it is applied to the current (x, y) coordinates to calculate a new point. This new point is then saved. This process is repeated many times building a collection of points. When all points are plotted, the result forms the intricate, natural shape of a fern. 
  </p>
+
+
+<p style="text-indent: 40px; line-height: 1.6;">
+There are 4 functions f1, f2, f3, and f4, each taking (x, y) as input and returning a new (x, y) after a transformation. The function f1(x, y) shrinks y to 16 % of its original size, this creates the stem. The function f2(x, y) shrinks and rotates to create the left and right sides of the stems. and the function f3(x, y) he function f4 creates side leaves. 
+ </p>
+
+<pre><code class="language-python">
+def f1(x, y):
+    x = 0
+    y = 0.16 * y
+    return x, y
+</code></pre>
+
+<pre><code class="language-python">
+def f2(x, y):
+    x_new = 0.85 * x + 0.04 * y
+    y_new = -0.04 * x + 0.85 * y + 1.6
+    return x_new, y_new
+</code></pre>
+
+<pre><code class="language-python">
+def f3(x, y):
+    x_new = 0.2 * x - 0.26 * y
+    y_new = 0.23 * x + 0.22 * y + 1.6
+    return x_new, y_new
+</code></pre>
+
+<pre><code class="language-python">
+def f4(x, y):
+    x_new = -0.15 * x + 0.28 * y
+    y_new = 0.26 * x + 0.24 * y + 0.44
+    return x_new, y_new
+</code></pre>
+	      
 
 <figure>
           <img 
