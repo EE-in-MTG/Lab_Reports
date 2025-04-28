@@ -217,7 +217,7 @@ Classic fractal tree model.
             loading="lazy"
           />
           <figcaption>
-            <strong></strong> Original
+            <strong></strong> Barnsley Fern original
           </figcaption>
 </figure>
 
@@ -285,18 +285,77 @@ turtle.done()
 
 
 	    
-<h3> Alterations to the Mandelbrot Set </h3>
+<h3> 4. Hilbert Curve (Space-Filling Curve) </h3>
+
+
+	    
 <p style="text-indent: 40px; line-height: 1.6;">
- An alteration for the Mandelbrot available in Python is to change the color map from the original hot to plasma or inferno.
+Generates Hilbert Curves of increasing order.
+
+Uses L-Systems for geometric recursion.
 </p>	
+
+<figure>
+          <img 
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9c.jpg"
+	
+            alt="120 degrees"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong></strong> Hilbert Curve
+          </figcaption>
+</figure>
+
+
+<p style="text-indent: 40px; line-height: 1.6;">
+Animated Hilbert Curve drawing.
+
+Higher-order curves with color change by segment.
+The Hilbert Curve elegantly fills space with increasing complexity, useful in data mapping and visual compression schemes.
+	
+</p>	
+	    
 <pre><code class="language-python">
- plt.imshow(n3.T, extent=[xmin, xmax, ymin, ymax], cmap='plasma')	
+import turtle
+import time
+
+turtle.speed(0)
+turtle.hideturtle()
+turtle.bgcolor("black")
+turtle.color("cyan")
+
+def draw_hilbert_curve(length, level, angle):
+    if level == 0:
+        return
+    turtle.right(angle)
+    draw_hilbert_curve(length, level-1, -angle)
+    turtle.forward(length)
+    turtle.left(angle)
+    draw_hilbert_curve(length, level-1, angle)
+    turtle.forward(length)
+    draw_hilbert_curve(length, level-1, angle)
+    turtle.left(angle)
+    turtle.forward(length)
+    draw_hilbert_curve(length, level-1, -angle)
+    turtle.right(angle)
+
+# Animate
+turtle.penup()
+turtle.goto(-200, 200)
+turtle.pendown()
+
+draw_hilbert_curve(10, 4, 90)
+turtle.done()
+	
 </code></pre>	    
  	    
 	      
 <figure>
           <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab78f.jpg"
+		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab9c.jpg"
 	
             alt="120 degrees"
             width="600"
@@ -304,178 +363,12 @@ turtle.done()
             loading="lazy"
           />
           <figcaption>
-            <strong></strong> Mandlebrot colormap plasma
+            <strong></strong> Modification to Hilbert Curve
           </figcaption>
 </figure>
 
-	    
-
-<figure>
-          <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab78g.jpg"
-	
-            alt="120 degrees"
-            width="600"
-            height="400"
-            loading="lazy"
-          />
-          <figcaption>
-            <strong></strong> Mandlebrot colormap inferno
-          </figcaption>
-        </figure>
-
-<p style="text-indent: 40px; line-height: 1.6;">
- Another alteration for the Mandelbrot is to alter colormap.
-</p>	
-	    
-<pre><code class="language-python">
-  while abs(z) <= 2 and n < max_iter: 	
-</code></pre>
-<p style="text-indent: 40px; line-height: 1.6;">
- wg=hen changing 2 to 1
-</p>		
-<pre><code class="language-python">
-  while abs(z) <= 1 and n < max_iter: 	
-</code></pre>
-<figure>
-          <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab78j.jpg"
-	
-            alt="120 degrees"
-            width="600"
-            height="400"
-            loading="lazy"
-          />
-          <figcaption>
-            <strong></strong> Mandlebrot alteration to while abs(z) <= 1
-          </figcaption>
-        </figure>
-
- 		     
-
- <h3>2. Julia Set Code Walkthrough</h3>
 
 
-	    
-<p style="text-indent: 40px; line-height: 1.6;">
-Our third function julia_set(c, ...) generates the Julia set for a fixed complex constant c. The julia set process is similar to Mandelbrot, but each point starts with z = pixel_value and applies z = z² + c with constant c. Unlike the Mandelbrot Set where z starts at 0 and c varies,  the constant c is fixed for Julia and z varies across each pixel in the complex plane.  Different constants c alter the shape of the Julia set.
-</p>	  
-	    
-<pre><code class="language-python">
-def julia_set(c, xmin, xmax, ymin, ymax, width, height, max_iter):
-    r1 = np.linspace(xmin, xmax, width)
-    r2 = np.linspace(ymin, ymax, height)
-    n3 = np.empty((width, height))
-
-    for i in range(width):
-        for j in range(height):
-            z = r1[i] + 1j * r2[j]
-            n = 0
-            while abs(z) <= 2 and n < max_iter:
-                z = z*z + c
-                n += 1
-            n3[i, j] = n
-
-    return n3
-</code></pre>
-
- 
-   
-<p style="text-indent: 40px; line-height: 1.6;">
- 
-</p>	    
-	      
-        <figure>
-          <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab78b.jpg"
-	
-            alt="120 degrees"
-            width="600"
-            height="400"
-            loading="lazy"
-          />
-          <figcaption>
-            <strong></strong> The zoom into the fuinction Mandlebrot
-          </figcaption>
-        </figure>
-
-<h3> Alterations to the Julia Set </h3>
-
-<p style="text-indent: 40px; line-height: 1.6;">
-Alterations to the Julia set can be done by changing the C value, the original -0.8 + j 0.156 Python code below is altered and plotting image below. 
-</p>
-
-<p style="text-indent: 40px; line-height: 1.6;">
-The Original code 
-</p>
-<pre><code class="language-python">
-c = complex(-0.8, 0.156)
-</code></pre>
-
-<p style="text-indent: 40px; line-height: 1.6;">
-The first alteration code where c = -0.4 + 0.6j
-</p>
-<pre><code class="language-python">
-c = complex(-0.4, 0.6)
-</code></pre>
-	    
-        <figure>
-          <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab78c.jpg"
-	
-            alt="120 degrees"
-            width="600"
-            height="400"
-            loading="lazy"
-          />
-          <figcaption>
-            <strong></strong> alterations to the Madelbrot : c = complex(-0.4, 0.6)
-          </figcaption>
-        </figure>
-
-
-<p style="text-indent: 40px; line-height: 1.6;">
-The next alteration code where c = 0.285 + 0.01j
-</p>
-		    
-<pre><code class="language-python">
-c = complex(0.285, 0.01)
-</code></pre>
-		    
-<figure>
-          <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab78d.jpg"
-	
-            alt="120 degrees"
-            width="600"
-            height="400"
-            loading="lazy"
-          />
-          <figcaption>
-            <strong></strong> alterations to the Julia Set c = complex(0.285, 0.01)
-          </figcaption>
-</figure>
-		    
-<p style="text-indent: 40px; line-height: 1.6;">
-The next alteration code where c = 0 + 1j
-</p>
-<pre><code class="language-python">
-c = complex(0, 1)
-</code></pre>	      
-	      
-<figure>
-          <img 
-		  src="https://raw.githubusercontent.com/EE-in-MTG/Lab_Reports/main/lab78e.jpg"
-	
-            alt="120 degrees"
-            width="600"
-            height="400"
-            loading="lazy"
-          />
-          <figcaption>
-            <strong></strong> Alterations to the Julia Set c = complex(0, 1)
-          </figcaption>
-        </figure>
 
 
 		    
